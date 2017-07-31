@@ -67,5 +67,5 @@ In order to install this example you will need the RWExplorer application runnin
     </View>
 </WearML>
 ```
-
+In order to enable and change more features of WearHF by using WearML be see the [WearML API Guide](https://github.com/realwear/WearML-Example/wiki/WearML-API)
 
