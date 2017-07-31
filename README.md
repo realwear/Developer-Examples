@@ -3,7 +3,7 @@ This example will show you how to speech enable an application with WearML.
 
 # Install Example
 In order to install this example you will need the RWExplorer application running on your computer. 
-    1. Click the Clonde or download button and the top of this page and then click download as '.zip'
+   <br> 1. Click the Clone or download button and the top of this page and then click download as '.zip'
         ![alt text](/images/download.PNG)
 
 ```xml
