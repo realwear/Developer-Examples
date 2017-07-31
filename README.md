@@ -51,7 +51,7 @@ In order to install this example you will need the RWExplorer application runnin
     <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes" overlay_show_number="no"/>
 ```
 
-## Task 1
+## Task 4
 ### Final Package
 ```xml
 <WearML>
