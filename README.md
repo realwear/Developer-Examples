@@ -30,23 +30,23 @@ In order to install this example you will need the RWExplorer application runnin
 
 ```
 
-Create UniqueIdentifier
+### Create UniqueIdentifier
 
 ```xml
     <UniqueIdentifier id="com.samples.realwear.wearml:id/boar"/>
 ```
 
-Set to always visable
+### Set to always visable
 ```xml
     <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes"/>
 ```
 
-Set speech command 
+### Set speech command 
 ```xml
     <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes"/>
 ```
 
-Switch Number off
+### Switch Number off
 ```xml
     <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes" overlay_show_number="no"/>
 ```
