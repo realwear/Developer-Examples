@@ -1,12 +1,18 @@
 # Synopsis
 This example will show you how to speech enable an application with WearML. 
 
-## Task 1: Install Test Application
+## Task 1
 ### Install Test Application
 In order to install this example you will need the RWExplorer application running on your computer. 
    <br>      1. Click the Clone or download button and the top of this page and then click download as '.zip'
         ![alt text](/images/download.PNG)
 
+## Task 2
+### Create WearML File
+
+
+## Task 3
+### Edit WearML
 ```xml
 
 <WearML>
@@ -45,7 +51,8 @@ Switch Number off
     <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes" overlay_show_number="no"/>
 ```
 
-## End 
+## Task 1
+### Final Package
 ```xml
 <WearML>
     <Package>com.samples.realwear.wearml</Package>
