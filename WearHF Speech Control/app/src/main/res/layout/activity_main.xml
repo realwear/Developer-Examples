@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:contentDescription="hf_no_number"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:paddingTop="38dp"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_below="@+id/boar"
+        android:text="Select Boar"
+        android:gravity="center_horizontal"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/boar"
+        android:onClick="onBoarClick"
+        android:contentDescription="Select Boar"
+        android:scaleType="fitCenter"
+        android:src="@drawable/boar"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        />
+
+    <ImageButton
+        android:layout_toRightOf="@+id/boar"
+        android:id="@+id/sunshine"
+        android:onClick="onSunshineClick"
+        android:contentDescription="Select Sunshine"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sunshine"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        />
+    <TextView
+        android:layout_toRightOf="@+id/boar"
+        android:layout_below="@+id/sunshine"
+        android:text="Select Sunshine"
+        android:gravity="center_horizontal"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:layout_toRightOf="@+id/sunshine"
+        android:id="@+id/amber"
+        android:onClick="onAmberClick"
+        android:contentDescription="Select Amber"
+        android:scaleType="fitCenter"
+        android:src="@drawable/amber"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        />
+    <TextView
+        android:layout_toRightOf="@+id/sunshine"
+        android:layout_below="@+id/amber"
+        android:text="Select Amber"
+        android:gravity="center_horizontal"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
+
+    <LinearLayout
+        android:padding="38dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>
