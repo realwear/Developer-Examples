@@ -1,71 +1,26 @@
-# Synopsis
-This example will show you how to speech enable an application with WearML. 
-
-## Task 1
-### Install Test Application
-In order to install this example you will need the RWExplorer application running on your computer. 
-   <br>      1. Click the Clone or download button and the top of this page and then click download as '.zip'
-        ![alt text](/images/download.PNG)
-
-## Task 2
-### Create WearML File
-
-
-## Task 3
-### Edit WearML
-```xml
-
-<WearML>
-    <Package>com.samples.realwear.wearml</Package>
-    <Language>en_US</Language>
-    <UniqueIdentifier id_or_type_or_text_or_content_description="xyz"/>
-    <View type="android.widget.FrameLayout">
-        <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton"/>
-        <View id="com.samples.realwear.wearml:id/sunshine" type="android.widget.ImageButton"/>
-        <View id="com.samples.realwear.wearml:id/amber" type="android.widget.ImageButton"/>
-        <View id="com.samples.realwear.wearml:id/title" text="Full Boar Scotch Ale" type="android.widget.TextView"/>
-        <View id="com.samples.realwear.wearml:id/description" text="Deeply malted and caramel apparent with overtones of chocolate and a mild, smoky flavor. A complex beer that is light on the palette and easy drinking." type="android.widget.TextView"/>
-    </View>
-</WearML>
-
-```
-
-### Create UniqueIdentifier
-
-```xml
-    <UniqueIdentifier id="com.samples.realwear.wearml:id/boar"/>
-```
-
-### Set to always visable
-```xml
-    <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes"/>
-```
-
-### Set speech command 
-```xml
-    <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes"/>
-```
-
-### Switch Number off
-```xml
-    <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes" overlay_show_number="no"/>
-```
-
-## Task 4
-### Final Package
-```xml
-<WearML>
-    <Package>com.samples.realwear.wearml</Package>
-    <Language>en_US</Language>
-    <UniqueIdentifier id="com.samples.realwear.wearml:id/boar"/>
-    <View type="android.widget.FrameLayout">
-        <View id="com.samples.realwear.wearml:id/boar" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Boar" overlay_show_text="yes" overlay_show_number="no"/>        
-        <View id="com.samples.realwear.wearml:id/sunshine" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Sunshine" overlay_show_text="yes" overlay_show_number="no"/>
-        <View id="com.samples.realwear.wearml:id/amber" type="android.widget.ImageButton" overlay_persists="yes" speech_command="Select Amber" overlay_show_text="yes" overlay_show_number="no"/>
-        <View id="com.samples.realwear.wearml:id/title" text="Full Boar Scotch Ale" type="android.widget.TextView"/>
-        <View id="com.samples.realwear.wearml:id/description" text="Deeply malted and caramel apparent with overtones of chocolate and a mild, smoky flavor. A complex beer that is light on the palette and easy drinking." type="android.widget.TextView"/>
-    </View>
-</WearML>
-```
-In order to enable and change more features of WearHF by using WearML be see the [WearML API Guide](https://github.com/realwear/WearML-Example/wiki/WearML-API)
+# Contents 
+  - ### [Introduction](https://github.com/realwear/Developer-Examples/wiki/Introduction)
+  - ### WearHF
+    - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearHF-Introduction)
+    - #### [API](https://github.com/realwear/Developer-Examples/wiki/WearHF:-API)
+  - ### WearML
+    - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearML:-Introduction)
+    - #### [API](https://github.com/realwear/Developer-Examples/wiki/WearML-API)
+  - ### Examples
+       - #### WearML
+            - ##### [Speech Enable](https://github.com/realwear/Developer-Examples/wiki/WearML-Example)
+       - #### Java - Android Studio
+            - ##### [Speech Enable your native application using WearHF](https://github.com/realwear/Developer-Examples/wiki/WearHF:-Embedded-Speech-Commands)
+            - ##### Open Document
+            - ##### Open Movie
+            - ##### Broadcast Speech Commands
+            - ##### Using Camera Application
+            - ##### Using Barcode Application
+            - ##### TTS (Text to Speech) (Coming Soon)
+            - ##### Dictation (Coming Soon)
+            - ##### Mute Microphone (Coming Soon)
+       - #### Javascript/HTML (Coming Soon)
+            - ##### Speech Enable your web page
+       - #### Unity (Coming Soon)
+            - ##### Speech Enable your unity application
 
