@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onScanCode(View v){
-        
+
         String ACTION_BARCODE = "com.wearnext.intent.action.barcodescann";
         String EXTRA_METHOD = "get_barcode";
 
