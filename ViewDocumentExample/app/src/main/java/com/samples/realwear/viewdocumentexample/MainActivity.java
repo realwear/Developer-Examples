@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * Example activity for open a file in the document viewer
+ */
 public class MainActivity extends AppCompatActivity {
 
     private AssetManager mAssetManager;
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * On button Click open document are certain location
+     * @param v Clicked View
+     */
     public void onOpenDocument(View v){
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -56,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Copies file from application assets folder to location
+     * @throws IOException
+     */
     public void copyFile(String fileName, String location, String toLocation) throws IOException {
         AssetFileDescriptor afd = null;
 

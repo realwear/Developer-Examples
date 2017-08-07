@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BroadcastSpeechExample.iml" filepath="$PROJECT_DIR$/BroadcastSpeechExample.iml" />
-      <module fileurl="file://C:\Users\Fin\Documents\RealWear_Git\Developer-Examples\BroadcastSpeechExample\BroadcastSpeechExample.iml" filepath="C:\Users\Fin\Documents\RealWear_Git\Developer-Examples\BroadcastSpeechExample\BroadcastSpeechExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Fin\Documents\RealWear_Git\Developer-Examples\BroadcastSpeechExample\app\app.iml" filepath="C:\Users\Fin\Documents\RealWear_Git\Developer-Examples\BroadcastSpeechExample\app\app.iml" />
     </modules>
   </component>
 </project>

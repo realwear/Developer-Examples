@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Example application for showing how to speech enable buttons
+ */
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTitle;

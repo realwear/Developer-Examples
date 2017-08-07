@@ -6,13 +6,14 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+/**
+ * Example Activity for send a list of commands to the show help dialog
+ */
 public class MainActivity extends AppCompatActivity {
 
     String ACTION_HELP_TEXT = "com.realwear.wearhf.intent.action.UPDATE_HELP_COMMANDS";
-
     String EXTRA_TEXT = "com.realwear.wearhf.intent.extra.HELP_COMMANDS";
     String EXTRA_SOURCE = "com.realwear.wearhf.intent.extra.SOURCE_PACKAGE";
-
 
 
     @Override
@@ -25,10 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        // Build list
         final ArrayList<String> helpCommands = new ArrayList<>();
         helpCommands.add("Sample 1");
         helpCommands.add("Sample 2");
 
+        // Send list to WearHF Service
         final Intent intent = new Intent(ACTION_HELP_TEXT);
         intent.putStringArrayListExtra(EXTRA_TEXT, helpCommands);
         intent.putExtra(EXTRA_SOURCE, getPackageName());

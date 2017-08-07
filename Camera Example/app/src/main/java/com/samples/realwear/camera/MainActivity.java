@@ -42,6 +42,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Example activity for receiving an image back from the Camera application via byte[] and file
+ */
 public class MainActivity extends AppCompatActivity {
     private String TAG = "HMT1DevApp-Camera";
     private static final int CAMERA_REQUEST_URI = 1888;
@@ -96,7 +99,13 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, CAMERA_REQUEST);
     }
 
+    /**
+     *  Listen to button click for when a file is requested
+     * @param view
+     */
     public void takePhotoFile(View view) {
+
+        // Create file on the sdcard
         photoFile = new File(Environment.getExternalStorageDirectory(), "snapshot.jpg");
         if (!photoFile.exists()) {
             try {
@@ -111,12 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
         Uri fileUri = Uri.fromFile(photoFile);
 
+        // Send the location for when the image must be saved to.
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_REQUEST_URI);
     }
-
-
 
 
     /////////////////////////////////////////////////////////////////////////////

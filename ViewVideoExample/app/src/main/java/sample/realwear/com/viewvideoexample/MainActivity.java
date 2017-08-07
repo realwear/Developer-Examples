@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+/**
+ * Example activity to play video using the Video Player
+ */
 public class MainActivity extends AppCompatActivity {
 
     private AssetManager mAssetManager;
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Opens video with video player
+     * @param v
+     */
     public void onOpenVideo(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -60,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Copies file from application assets folder to location
+     * @throws IOException
+     */
     public void copyFile(String fileName, String location, String toLocation) throws IOException {
         AssetFileDescriptor afd = null;
 
