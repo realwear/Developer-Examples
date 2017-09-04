@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WearHF</string>
+
+    <string name="boar_title">Full Boar Scotch Ale</string>
+    <string name="boar_description">Deeply malted and caramel apparent with overtones of chocolate and a mild, smoky flavor. A complex beer that is light on the palette and easy drinking.</string>
+
+    <string name="sunshine_title">California Sunshine RyePA</string>
+    <string name="sunshine_description">Assertive hop bitterness, a toasty and bready malt mouth-feel with a rye grass and citrus finish.</string>
+
+    <string name="amber_title">Deadicated Amber Ale</string>
+    <string name="amber_description">Rich and medium bodied with a subtle blend of caramel malts that give way to a well-balanced bouquet of cascade hops.</string>
+
+</resources>
