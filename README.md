@@ -3,11 +3,11 @@
   - ### WearHF
     - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearHF-Introduction)
     - #### [Java API](https://github.com/realwear/Developer-Examples/wiki/WearHF:-API)
-    - #### Unity API (Coming Soon)
+    - #### [Unity API](https://github.com/realwear/Unity-Plugin)
   - ### WearML
     - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearML:-Introduction)
     - #### [API](https://github.com/realwear/Developer-Examples/wiki/WearML-API)
-    - #### JavaScript/HTML API (Coming Soon)
+    - #### [JavaScript/HTML API](https://github.com/realwear/WML-HTML-Example)
   - ### RealWear Applications
     - #### [Camera API](https://github.com/realwear/Developer-Examples/wiki/Camera-API)
     - #### [Barcode API](https://github.com/realwear/Developer-Examples/wiki/Barcode-API)
@@ -18,16 +18,15 @@
             - ##### [Speech Enable](https://github.com/realwear/Developer-Examples/wiki/WearML-Example)
        - #### Java - Android Studio
             - ##### [Speech Enable your native application using WearHF](https://github.com/realwear/Developer-Examples/wiki/WearHF:-Embedded-Speech-Commands)
-            - ##### [Show Help](https://github.com/realwear/Developer-Examples/tree/master/ShowHelpExample)
-            - ##### [Open Document](https://github.com/realwear/Developer-Examples/tree/master/ViewDocumentExample)
-            - ##### [Open Movie](https://github.com/realwear/Developer-Examples/tree/master/ViewVideoExample)
-            - ##### [Broadcast Speech Commands](https://github.com/realwear/Developer-Examples/tree/master/BroadcastSpeechExample)
-            - ##### [Using Camera Application](https://github.com/realwear/Developer-Examples/tree/master/Camera%20Example)
-            - ##### [Using Barcode Application](https://github.com/realwear/Developer-Examples/tree/master/Barcode%20Example)
-            - ##### TTS (Text to Speech) (Coming Soon)
-            - ##### Dictation (Coming Soon)
-            - ##### Mute Microphone (Coming Soon)
-       - #### Javascript/HTML (Coming Soon)
-            - ##### Speech Enable your web page
-       - #### Unity (Coming Soon)
-            - ##### Speech Enable your unity application
+            - ##### [Show Help](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ShowHelpExample/app/src/main/java/sample/realwear/com/showhelpexample/MainActivity.java)
+            - ##### [Open Document](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ViewDocumentExample/app/src/main/java/com/samples/realwear/viewdocumentexample/MainActivity.java)
+            - ##### [Open Movie](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ViewVideoExample/app/src/main/java/sample/realwear/com/viewvideoexample/MainActivity.java)
+            - ##### [Broadcast Speech Commands](https://raw.githubusercontent.com/realwear/Developer-Examples/master/BroadcastSpeechExample/app/src/main/java/sample/realwear/com/broadcastspeechexample/MainActivity.java)
+            - ##### [Using Camera Application](https://github.com/realwear/Developer-Examples/blob/master/Camera%20Example/app/src/main/java/com/samples/realwear/camera/MainActivity.java)
+            - ##### [Using Barcode Application](https://github.com/realwear/Developer-Examples/blob/master/Barcode%20Example/app/src/main/java/samples/realwear/com/barcodeexample/MainActivity.java)
+            - ##### [TTS (Text to Speech)](https://raw.githubusercontent.com/realwear/Developer-Examples/master/TTS/app/src/main/java/com/samples/realwear/tts/MainActivity.java)
+            - ##### [Dictation (Coming Soon)](https://raw.githubusercontent.com/realwear/Developer-Examples/master/Dictation/app/src/main/java/com/samples/realwear/dictation/MainActivity.java)
+       - #### Javascript/HTML
+            - ##### [Speech Enable your web page](https://github.com/realwear/WML-HTML-Example/wiki)
+       - #### Unity
+            - ##### [Speech Enable your unity application](https://github.com/realwear/Unity-Plugin/wiki)
