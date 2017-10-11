@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Developer Test</string>
+
+    <!-- Main Screen Commands -->
+    <string name="action_button_command">Action Button</string>
+    <string name="camera_command">Camera Applet</string>
+    <string name="document_command">Document Applet</string>
+    <string name="movie_command">Movie Applet</string>
+    <string name="barcode_command">Barcode Applet</string>
+
+    <string name="asr_command">Speech Recognizer</string>
+    <string name="dication_command">Keyboard and Dictation</string>
+    <string name="tts_command">Text to Speech"</string>
+    <string name="mute_command">Microphone Release</string>
+    <string name="audio_command">Audio Capture</string>
+
+    <!-- Resources for Action Button Activity -->
+    <string name="action_button_label">Press the Action Button!</string>
+
+    <!-- Resources for Camera Activity -->
+    <string name="camera_button_label">Launch Camera</string>
+
+    <!-- Resources for Document Activity -->
+    <string name="document_button_label">Launch Document Viewer</string>
+
+    <!-- Resources for Movie Activity -->
+    <string name="movie_button_label">Launch Video Viewer</string>
+
+    <!-- Resources for Barcode Activity -->
+    <string name="barcode_button_label">Launch Barcode Reader</string>
+
+    <!-- Resources for TTS Activity -->
+    <string name="tts_speech">Welcome to the HMT-1 from RealWear. This is the Text to Speech Engine example.</string>
+    <string name="tts_speech_hint">(Dont forget to install the TTS Language Pack APK from the RealWear Cloud)</string>
+
+    <!-- Resources for Speech Activity -->
+    <string name="speech_label">Speak a quantity from 1 to 20</string>
+
+    <!-- Resources for Dictation Activity -->
+    <string name="dictation_button">Start Dictation</string>
+    <string name="keyboard_button">Open Keyboard</string>
+
+</resources>

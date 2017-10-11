@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/topLevel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="38dp"
+    android:contentDescription="hf_no_number">
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="onStartRecord"
+        android:text="Record Sample"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/playbackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recordButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="onStartPlayback"
+        android:text="Playback Sample"
+        android:textSize="18sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/playbackButton"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:progress="0"
+        android:scaleY="4"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/fileTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="filename"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/sampleRates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp">
+
+        <RadioButton
+            android:id="@+id/rate8Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSampleRateChanged"
+            android:text="8 Kilohertz"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/rate16Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSampleRateChanged"
+            android:text="16 Kilohertz"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/rate44Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSampleRateChanged"
+            android:text="44 Kilohertz"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/rate48Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSampleRateChanged"
+            android:text="48 Kilohertz"
+            android:textSize="24sp" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/channels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <RadioButton
+            android:id="@+id/monoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onChannelsChanged"
+            android:text="Mono Audio"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/stereoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onChannelsChanged"
+            android:text="Stereo Audio"
+            android:textSize="24sp" />
+
+    </RadioGroup>
+
+</RelativeLayout>
