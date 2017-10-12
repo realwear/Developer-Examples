@@ -30,7 +30,7 @@ public class ShowHelpActivity extends Activity {
     private static final String EXTRA_SOURCE = "com.realwear.wearhf.intent.extra.SOURCE_PACKAGE";
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

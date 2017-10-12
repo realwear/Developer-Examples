@@ -45,7 +45,7 @@ public class SpeechRecognizerActivity extends Activity {
     private TextView mQuantityView;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

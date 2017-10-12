@@ -30,7 +30,7 @@ public class CameraActivity extends Activity {
     private ImageView mImageView;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

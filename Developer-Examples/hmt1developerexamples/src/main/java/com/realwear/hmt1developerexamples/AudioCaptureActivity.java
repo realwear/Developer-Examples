@@ -66,7 +66,7 @@ public class AudioCaptureActivity extends Activity implements Runnable {
     private Thread mMotor;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

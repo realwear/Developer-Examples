@@ -22,7 +22,7 @@ public class ActionButtonActivity extends Activity {
     private ImageView mActionButtonImageView;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

@@ -36,7 +36,7 @@ public class TTSActivity extends Activity {
     private static final int TTS_REQUEST_CODE = 34;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

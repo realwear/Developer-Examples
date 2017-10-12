@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     private GridView mGridView;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

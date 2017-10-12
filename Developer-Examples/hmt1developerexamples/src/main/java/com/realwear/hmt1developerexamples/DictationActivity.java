@@ -30,7 +30,7 @@ public class DictationActivity extends Activity {
     private EditText mTextField;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

@@ -41,7 +41,7 @@ public class BarcodeActivity extends Activity {
     private TextView mBarcodeResultsView;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */

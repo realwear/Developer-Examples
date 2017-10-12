@@ -30,7 +30,7 @@ public class DocumentActivity extends Activity {
     private File mSampleFile;
 
     /**
-     * Constructor
+     * Called when the activity is created
      *
      * @param savedInstanceState See Android docs
      */
