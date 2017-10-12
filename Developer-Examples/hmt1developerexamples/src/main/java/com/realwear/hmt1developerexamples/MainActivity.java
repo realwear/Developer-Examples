@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        View[] tileList = new View[10];
+        View[] tileList = new View[11];
         tileList[0] = new MainMenuTile(this, R.string.action_button_command, R.drawable.action_button, "ActionButtonActivity");
         tileList[1] = new MainMenuTile(this, R.string.camera_command, R.drawable.camera, "CameraActivity");
         tileList[2] = new MainMenuTile(this, R.string.document_command, R.drawable.document, "DocumentActivity");
@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
         tileList[7] = new MainMenuTile(this, R.string.tts_command, R.drawable.tts, "TTSActivity");
         tileList[8] = new MainMenuTile(this, R.string.mute_command, R.drawable.microphone_off, "MicrophoneReleaseActivity");
         tileList[9] = new MainMenuTile(this, R.string.audio_command, R.drawable.asr, "AudioCaptureActivity");
+
+        tileList[10] = new MainMenuTile(this, R.string.showhelp_command, R.drawable.show_help, "ShowHelpActivity");
 
         mMainMenuTileAdaptor = new MainMenuTileAdaptor(tileList);
         mGridView = (GridView) findViewById(R.id.gridView);

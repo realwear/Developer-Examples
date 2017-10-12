@@ -3,7 +3,7 @@
     package="com.realwear.hmt1developerexamples">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -20,16 +20,17 @@
 
         </activity>
 
-        <activity android:name=".ActionButtonActivity"/>
-        <activity android:name=".CameraActivity"/>
-        <activity android:name=".DocumentActivity"/>
-        <activity android:name=".MovieActivity"/>
-        <activity android:name=".BarcodeActivity"/>
-        <activity android:name=".TTSActivity"/>
-        <activity android:name=".SpeechRecognizerActivity"/>
-        <activity android:name=".DictationActivity"/>
-        <activity android:name=".AudioCaptureActivity"/>
-        <activity android:name=".MicrophoneReleaseActivity"/>
+        <activity android:name=".ActionButtonActivity" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".DocumentActivity" />
+        <activity android:name=".MovieActivity" />
+        <activity android:name=".BarcodeActivity" />
+        <activity android:name=".TTSActivity" />
+        <activity android:name=".SpeechRecognizerActivity" />
+        <activity android:name=".DictationActivity" />
+        <activity android:name=".AudioCaptureActivity" />
+        <activity android:name=".MicrophoneReleaseActivity" />
+        <activity android:name=".ShowHelpActivity" />
     </application>
 
 </manifest>

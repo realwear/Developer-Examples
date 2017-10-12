@@ -14,6 +14,8 @@
     <string name="mute_command">Microphone Release</string>
     <string name="audio_command">Audio Capture</string>
 
+    <string name="showhelp_command">Help Menu</string>
+
     <!-- Resources for Action Button Activity -->
     <string name="action_button_label">Press the Action Button!</string>
 
@@ -39,5 +41,8 @@
     <!-- Resources for Dictation Activity -->
     <string name="dictation_button">Start Dictation</string>
     <string name="keyboard_button">Open Keyboard</string>
+
+    <!-- Resources for Show Help Activity -->
+    <string name="show_help_hint">Say \"Show Help\" to see available commands</string>
 
 </resources>
