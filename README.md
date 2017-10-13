@@ -1,31 +1,61 @@
-# Contents 
-  - ### [Screen Casting](https://github.com/realwear/Developer-Examples/wiki/Screen-Casting)
-  - ### WearHF
-    - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearHF-Introduction)
-    - #### [Java API](https://github.com/realwear/Developer-Examples/wiki/WearHF:-API)
-    - #### [Unity API](https://github.com/realwear/Unity-Plugin)
-  - ### WearML
-    - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearML:-Introduction)
-    - #### [API](https://github.com/realwear/Developer-Examples/wiki/WearML-API)
-  - ### RealWear Applications
-    - #### [Camera API](https://github.com/realwear/Developer-Examples/wiki/Camera-API)
-    - #### [Barcode API](https://github.com/realwear/Developer-Examples/wiki/Barcode-API)
-    - #### [Document Viewer API](https://github.com/realwear/Developer-Examples/wiki/Document-Viewer-API)
-    - #### [Movie Viewer API](https://github.com/realwear/Developer-Examples/wiki/Movie-Player-API)
-  - ### Examples
-       - #### WearML
-            - ##### [Speech Enable](https://github.com/realwear/Developer-Examples/wiki/WearML-Example)
-       - #### Java - Android Studio
-            - ##### [Speech Enable your native application using WearHF](https://github.com/realwear/Developer-Examples/wiki/WearHF:-Embedded-Speech-Commands)
-            - ##### [Show Help](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ShowHelpExample/app/src/main/java/sample/realwear/com/showhelpexample/MainActivity.java)
-            - ##### [Open Document](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ViewDocumentExample/app/src/main/java/com/samples/realwear/viewdocumentexample/MainActivity.java)
-            - ##### [Open Movie](https://raw.githubusercontent.com/realwear/Developer-Examples/master/ViewVideoExample/app/src/main/java/sample/realwear/com/viewvideoexample/MainActivity.java)
-            - ##### [Broadcast Speech Commands](https://raw.githubusercontent.com/realwear/Developer-Examples/master/BroadcastSpeechExample/app/src/main/java/sample/realwear/com/broadcastspeechexample/MainActivity.java)
-            - ##### [Using Camera Application](https://github.com/realwear/Developer-Examples/blob/master/Camera%20Example/app/src/main/java/com/samples/realwear/camera/MainActivity.java)
-            - ##### [Using Barcode Application](https://github.com/realwear/Developer-Examples/blob/master/Barcode%20Example/app/src/main/java/samples/realwear/com/barcodeexample/MainActivity.java)
-            - ##### [TTS (Text to Speech)](https://raw.githubusercontent.com/realwear/Developer-Examples/master/TTS/app/src/main/java/com/samples/realwear/tts/MainActivity.java)
-            - ##### [Dictation (Coming Soon)](https://raw.githubusercontent.com/realwear/Developer-Examples/master/Dictation/app/src/main/java/com/samples/realwear/dictation/MainActivity.java)
-       - #### Javascript/HTML
-            - ##### [Speech Enable your web page](https://github.com/realwear/WML-HTML-Example/wiki)
-       - #### Unity
-            - ##### [Speech Enable your unity application](https://github.com/realwear/Unity-Plugin/wiki)
+# Introduction
+
+Welcome to the RealWear Developer GitHub repository, where you can find out about the latest development features available to get the most out your Android application on a HMT-1 device.
+
+Since the HMT-1 runs Android 6.0 it's very quick and easy to get your application up and running, and thanks to out revolutionary WearHF service most applications are speech enabled without any initial modifications. 
+
+There are 3 steps for getting your application ready for the HMT-1:
+
+1. **Just install your application** - The WearHF service will automatically detect the most common controls, and assign voice commands to them. This will provide a handsfree experience to most applications.
+1. **Create a WearML script** - To provide a smoother user experience, or to help WearHF understand complex applications we have created the WearML scripting language. This sits between the application and the WearHF service and allows a developer to make their applications handsfree without editing the source code of their application. 
+1. **Update application source code** - Once you have discovered the benifits the HMT-1 device, the final step is to edit your application to provide a optimized experience.
+
+To learn more about WearHF, WearML, and how to get your application running on a HMT-1, see the examples below or checkout the [Developer Wiki.](https://github.com/realwear/Developer-Examples/wiki)
+
+# Repository Contents
+
+  ## WearML Example
+  - ## [Creating a WearML script](https://github.com/realwear/Developer-Examples/wiki/WearML-Example)
+    This demo shows how to use a WearML script to customise the handsfree experiance of a simple application without modifying its source code.
+
+  ## Developer Examples
+
+  When you are ready to modify your application's source code, the following code examples provide clear explanations of how to use the key features that the HMT-1 provides.
+
+  - ## Action Button
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ActionButtonActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Action-Button)    
+    This example shows how to take control of the action button on the HMT-1 from inside your application, allowing a developer to trigger events when the user pushes the button.
+  - ## Audio Capture
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/AudioCaptureActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Audio-Capture)
+    This example shows how to record and playback audio from an application on the HMT-1.
+  - ## Barcode/QR Code Scanner
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/BarcodeActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Barcode-API)    
+    This example shows how launch a barcode scanner from an application and how to read the response once the user has scanned a code.
+  - ## Camera
+     ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/CameraActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Camera-API)
+    This example shows how launch a camera from an application and how to display the picture the user takes.
+  - ## Keyboard/Dictation
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DictationActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Keyboard-Dictation-Input)
+    This example shows how accept input from the user using either a keyboard or dictation.
+  - ## Document Viewer
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DocumentActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Document-Viewer-API)
+    This example shows how to open documents and images in the document viewer from an application.
+  - ## Microphone Release
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MicrophoneReleaseActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Microphone-Release)
+    This example shows how to release the microphone to disable voice recognition, allowing an application to take full control of the audio input.
+  - ## Movie Player
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MovieActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Movie-Player-API)
+    This example shows how to open videos in the movie viewer from an application.
+  - ## Show Help
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ShowHelpActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Show-Help)
+    This example shows how to add voice commands for an application to the show help menu.
+  - ## Speech Recognizer
+    ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/SpeechRecognizerActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Speech-Recognizer)
+    This example shows how to programmatically add voice commands to an application. 
+
+# Other Resources
+
+  - ## [Speech Enable your Unity application](https://github.com/realwear/Unity-Plugin/wiki)
+     Learn how to speech enable your Unity application.
+  - ## [Screen Casting](https://github.com/realwear/Developer-Examples/wiki/Screen-Casting)
+    Learn how to cast your HMT-1 device to an external screen.
