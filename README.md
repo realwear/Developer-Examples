@@ -7,7 +7,6 @@
   - ### WearML
     - #### [Introduction](https://github.com/realwear/Developer-Examples/wiki/WearML:-Introduction)
     - #### [API](https://github.com/realwear/Developer-Examples/wiki/WearML-API)
-    - #### [JavaScript/HTML API](https://github.com/realwear/WML-HTML-Example)
   - ### RealWear Applications
     - #### [Camera API](https://github.com/realwear/Developer-Examples/wiki/Camera-API)
     - #### [Barcode API](https://github.com/realwear/Developer-Examples/wiki/Barcode-API)
