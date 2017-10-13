@@ -15,7 +15,8 @@ To learn more about WearHF, WearML, and how to get your application running on a
 # Repository Contents
 
   ## WearML Example
-  - ## [Creating a WearML script](https://github.com/realwear/Developer-Examples/wiki/WearML-Example)
+  - ## Creating a WearML script
+    ### [Source code](https://github.com/realwear/Developer-Examples/tree/master/WearML-Example/WearML-Example-Application) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/WearML-Example) 
     This demo shows how to use a WearML script to customise the handsfree experiance of a simple application without modifying its source code.
 
   ## Developer Examples
@@ -55,7 +56,7 @@ To learn more about WearHF, WearML, and how to get your application running on a
 
 # Other Resources
 
-  - ## [Speech Enable your Unity application](https://github.com/realwear/Unity-Plugin/wiki)
+  - ## [Speech Enable your Unity application](https://realwear.github.io/Unity-Plugin/Home)
      Learn how to speech enable your Unity application.
   - ## [Screen Casting](https://github.com/realwear/Developer-Examples/wiki/Screen-Casting)
     Learn how to cast your HMT-1 device to an external screen.
