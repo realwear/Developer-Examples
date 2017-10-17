@@ -1,4 +1,4 @@
-package com.realwear.hmt1developertest;
+package com.realwear.hmt1developerexamples;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.realwear.hmt1developertest", appContext.getPackageName());
+        assertEquals("com.realwear.hmt1developerexamples", appContext.getPackageName());
     }
 }
