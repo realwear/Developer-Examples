@@ -6,9 +6,9 @@ Since the HMT-1 runs Android 6.0 it's very quick and easy to get your applicatio
 
 There are 3 steps for getting your application ready for the HMT-1:
 
-1. **Just install your application** - The WearHF service will automatically detect the most common controls, and assign voice commands to them. This will provide a handsfree experience to most applications.
-1. **Create a WearML script** - To provide a smoother user experience, or to help WearHF understand complex applications we have created the WearML scripting language. This sits between the application and the WearHF service and allows a developer to make their applications handsfree without editing the source code of their application. 
-1. **Update application source code** - Once you have discovered the benifits the HMT-1 device, the final step is to edit your application to provide a optimized experience.
+1. **Just install your application** - The WearHF service will automatically detect the most common controls, and assign voice commands to them. This will provide a hands-free experience to most applications.
+1. **Create a WearML script** - To provide a smoother user experience, or to help WearHF understand complex applications we have created the WearML scripting language. This sits between the application and the WearHF service and allows a developer to make their applications hands-free without editing the source code of their application. 
+1. **Update application source code** - Once you have discovered the benefits the HMT-1 device, the final step is to edit your application to provide a optimized experience.
 
 To learn more about WearHF, WearML, and how to get your application running on a HMT-1, see the examples below or checkout the [Developer Wiki.](https://github.com/realwear/Developer-Examples/wiki)
 
@@ -17,7 +17,7 @@ To learn more about WearHF, WearML, and how to get your application running on a
   ## WearML Example
   - ## Creating a WearML script
     ### [Source code](https://github.com/realwear/Developer-Examples/tree/master/WearML-Example/WearML-Example-Application) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/WearML-Example) 
-    This demo shows how to use a WearML script to customise the handsfree experiance of a simple application without modifying its source code.
+    This demo shows how to use a WearML script to customise the hands-free experience of a simple application without modifying its source code.
 
   ## Developer Examples
 
@@ -54,9 +54,15 @@ To learn more about WearHF, WearML, and how to get your application running on a
     ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/Developer-Examples/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/SpeechRecognizerActivity.java) - [Documentation](https://github.com/realwear/Developer-Examples/wiki/Speech-Recognizer)
     This example shows how to programmatically add voice commands to an application. 
 
+  ## Unity Example
+
+  Unity applications do not function in the same way that standard Android applications do, so WearHF is not able to interpret them in the same way out of the box. 
+
+  However, we have developed a Unity plugin that enables speech commands to work in Unity applications.
+
+  - ### [Source code](https://github.com/realwear/Developer-Examples/tree/master/Unity-Example) - [Documentation](https://realwear.github.io/Unity-Plugin/Home)
+
 # Other Resources
 
-  - ## [Speech Enable your Unity application](https://realwear.github.io/Unity-Plugin/Home)
-     Learn how to speech enable your Unity application.
   - ## [Screen Casting](https://github.com/realwear/Developer-Examples/wiki/Screen-Casting)
     Learn how to cast your HMT-1 device to an external screen.
