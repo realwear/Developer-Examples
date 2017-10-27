@@ -2,7 +2,7 @@
 
 Welcome to the RealWear Developer GitHub repository, where you can find out about the latest development features available to get the most out your Android application on a HMT-1 device.
 
-Since the HMT-1 runs Android 6.0 it's very quick and easy to get your application up and running, and thanks to out revolutionary WearHF service most applications are speech enabled without any initial modifications. 
+Since the HMT-1 runs Android 6.0 it's very quick and easy to get your application up and running, and thanks to our revolutionary WearHF service most applications are speech enabled without any initial modifications. 
 
 There are 3 steps for getting your application ready for the HMT-1:
 
