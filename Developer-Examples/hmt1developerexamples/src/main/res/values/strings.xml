@@ -16,6 +16,8 @@
 
     <string name="showhelp_command">Help Menu</string>
 
+    <string name="bnf_command">BNF Grammar</string>
+
     <!-- Resources for Action Button Activity -->
     <string name="action_button_label">Press the Action Button!</string>
 
@@ -44,5 +46,7 @@
 
     <!-- Resources for Show Help Activity -->
     <string name="show_help_hint">Say \"Show Help\" to see available commands</string>
+    <string name="speak_now">Speak Now</string>
+    <string name="bnf_help">Please say the time <p></p><p></p> Example: One Forty Five</string>
 
 </resources>

@@ -31,6 +31,7 @@
         <activity android:name=".AudioCaptureActivity" />
         <activity android:name=".MicrophoneReleaseActivity" />
         <activity android:name=".ShowHelpActivity" />
+        <activity android:name=".BNFGrammarActivity" />
     </application>
 
 </manifest>

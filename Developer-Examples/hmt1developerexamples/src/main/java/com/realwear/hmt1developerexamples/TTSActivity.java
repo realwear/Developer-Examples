@@ -13,7 +13,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -32,6 +34,14 @@ public class TTSActivity extends Activity {
     private String EXTRA_ID = "tts_id";
     private String EXTRA_PAUSE = "pause_speech_recognizer";
 
+    // Request code identifying dictation events
+    private static final int DICTATION_REQUEST_CODE = 34;
+
+    // Dictation intent action
+    private final static String ACTION_DICTATION = "com.realwear.keyboard.intent.action.DICTATION";
+
+    private EditText mTextField;
+
     // Request code identifying TTS events
     private static final int TTS_REQUEST_CODE = 34;
 
@@ -48,6 +58,9 @@ public class TTSActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.tts_main);
+
+        mTextField = (EditText) findViewById(R.id.dictationField);
+        mTextField.setText(getString(R.string.tts_speech));
     }
 
     /**
@@ -59,13 +72,6 @@ public class TTSActivity extends Activity {
 
         registerReceiver(ttsReceiver, new IntentFilter(ACTION_TTS_FINISHED));
 
-        String text = getString(R.string.tts_speech);
-
-        Intent intent = new Intent(ACTION_TTS);
-        intent.putExtra(EXTRA_TEXT, text);
-        intent.putExtra(EXTRA_ID, TTS_REQUEST_CODE);
-        intent.putExtra(EXTRA_PAUSE, false); // Don't pause speech recogniser while TTS is playing
-        sendBroadcast(intent);
     }
 
     /**
@@ -77,6 +83,54 @@ public class TTSActivity extends Activity {
 
         if (ttsReceiver != null) {
             unregisterReceiver(ttsReceiver);
+        }
+    }
+
+    /**
+     * Listener for when a the launch dictation button is clicked
+     *
+     * @param view The launch dictation button
+     */
+    public void onLaunchDictation(View view) {
+        mTextField.setText("");
+        Intent intent = new Intent(ACTION_DICTATION);
+        startActivityForResult(intent, DICTATION_REQUEST_CODE);
+    }
+
+    /**
+     * Listener for when a the Speak Now button is clicked
+     *
+     * @param view Starts TTS
+     */
+    public void onSpeakNow(View v){
+
+        String value = mTextField.getText().toString();
+
+        if(!value.isEmpty()) {
+            Intent intent = new Intent(ACTION_TTS);
+            intent.putExtra(EXTRA_TEXT, value);
+            intent.putExtra(EXTRA_ID, TTS_REQUEST_CODE);
+            intent.putExtra(EXTRA_PAUSE, false); // Don't pause speech recogniser while TTS is playing
+            sendBroadcast(intent);
+
+        }
+    }
+
+    /**
+     * Listener for result from external activities. Receives text data dictation.
+     *
+     * @param requestCode See Android docs
+     * @param resultCode  See Android docs
+     * @param data        See Android docs
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK && requestCode == DICTATION_REQUEST_CODE) {
+            String result = "[Error]";
+            if (data != null) {
+                result = data.getStringExtra("result");
+            }
+
+            mTextField.setText(result);
         }
     }
 
