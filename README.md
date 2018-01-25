@@ -17,10 +17,10 @@ Download link above contains:
 
 * DeveloperExamples_1.2.apk - An installable version of the Developer Examples which can be installed on a HMT-1
 
-## [Tutorial](tutorial)
+## [Tutorial](https://realwear.github.io/Developer-Examples/tutorial)
 
 The following tutorial shows how to use the Developer Examples app.
 
-## [Release Notes](release-notes)
+## [Release Notes](https://realwear.github.io/Developer-Examples/release-notes)
 
 The release notes are available to show all the changes for each version of the Developer Examples app.
