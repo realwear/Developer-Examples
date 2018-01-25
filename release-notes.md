@@ -1,3 +1,8 @@
+---
+title: Developer Examples
+description: Release Notes
+---
+
 ## Release Notes
 
 Below are the release notes for each version of the Developer Examples app.
