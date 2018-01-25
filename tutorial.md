@@ -20,38 +20,38 @@ The app contains a number of examples which can be viewed by following the instr
 The following examples are available within the app. Each example has source code and documentation available detailing each one was achieved. 
 
 - ## Action Button
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ActionButtonActivity.java) - [Documentation](examples/action-button)    
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ActionButtonActivity.java) - [Documentation](action-button)    
     This example shows how to take control of the action button on the HMT-1 from inside your application, allowing a developer to trigger events when the user pushes the button.
 - ## Camera Applet
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/CameraActivity.java) - [Documentation](examples/camera-applet)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/CameraActivity.java) - [Documentation](camera-applet)
     This example shows how launch a camera from an application and how to display the picture the user takes.	
 - ## Document Applet
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DocumentActivity.java) - [Documentation](examples/document-applet)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DocumentActivity.java) - [Documentation](document-applet)
     This example shows how to open documents and images in the document viewer from an application.
 - ## Movie Applet
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MovieActivity.java) - [Documentation](examples/movie-applet)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MovieActivity.java) - [Documentation](movie-applet)
     This example shows how to open videos in the movie viewer from an application.
 - ## Barcode Applet
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/BarcodeActivity.java) - [Documentation](examples/barcode-applet)    
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/BarcodeActivity.java) - [Documentation](barcode-applet)    
     This example shows how launch a barcode scanner from an application and how to read the response once the user has scanned a code.	
 - ## Speech Recognizer
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/SpeechRecognizerActivity.java) - [Documentation](examples/speech-recognizer)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/SpeechRecognizerActivity.java) - [Documentation](speech-recognizer)
     This example shows how to programmatically add voice commands to an application. 
 - ## Keyboard and Dictation
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DictationActivity.java) - [Documentation](examples/keyboard-and-dictation)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/DictationActivity.java) - [Documentation](keyboard-and-dictation)
     This example shows how accept input from the user using either a keyboard or dictation.
 - ## Text to Speech
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/TTSActivity.java) - [Documentation](examples/text-to-speech)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/TTSActivity.java) - [Documentation](text-to-speech)
     This example shows how to use the text to speech engine to read text out aloud to the user.
 - ## Microphone Release
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MicrophoneReleaseActivity.java) - [Documentation](examples/microphone-release)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/MicrophoneReleaseActivity.java) - [Documentation](microphone-release)
     This example shows how to release the microphone to disable voice recognition, allowing an application to take full control of the audio input.	
 - ## Audio Capture
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/AudioCaptureActivity.java) - [Documentation](examples/audio-capture)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/AudioCaptureActivity.java) - [Documentation](audio-capture)
     This example shows how to record and playback audio from an application on the HMT-1.
 - ## Help Menu
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ShowHelpActivity.java) - [Documentation](examples/help-menu)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/ShowHelpActivity.java) - [Documentation](help-menu)
     This example shows how to add voice commands for an application to the show help menu.
 - ## BNF Grammar
-  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/BNFGrammarActivity.java) - [Documentation](examples/bnf-grammar)
+  ### [Source code](https://github.com/realwear/Developer-Examples/blob/master/hmt1developerexamples/src/main/java/com/realwear/hmt1developerexamples/BNFGrammarActivity.java) - [Documentation](bnf-grammar)
     This example shows how to programmatically add BNF grammar to the speech engine, allowing the user to enter a variety options to build a custom string.
