@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Keyboard and Dictation Example
+title: Keyboard and Dictation Example
 ---
 
 Most application require the user to input some form of information. The HMT-1 comes with 2 main methods for inputting information:

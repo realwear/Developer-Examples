@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Release Notes
+title: Release Notes
 ---
 
 ## Release Notes

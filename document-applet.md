@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Document Applet Example
+title: Document Applet Example
 ---
 
 ## Document Viewer Intent

@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Text to Speech Example
+title: Text to Speech Example
 ---
 
 The HMT-1 comes with a built in text to speech engine that can relay text to the user by reading it out aloud. This allows for quick pieces of information to be given to the user without them having to view the screen.

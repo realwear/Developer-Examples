@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Speech Recognizer Example
+title: Speech Recognizer Example
 ---
 
 Voice commands can be added to an application by updating the resource files, but it's also possible to add them in the source code if required.

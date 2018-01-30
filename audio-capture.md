@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Audio Capture Example
+title: Audio Capture Example
 ---
 
 Audio is delivered to applications using the standard Android mechanisms, so an application that records audio should work out of the box on a HMT-1.

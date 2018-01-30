@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Tutorial
+title: Tutorial
 ---
 
 ## Installation

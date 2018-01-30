@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: BNF Grammar Example
+title: BNF Grammar Example
 ---
 
 Static speech commands are not suitable when there are a large number of selections available to a user. For instance, to have a speech command for entering a time would require 60 speech commands for every minute value, multiplied by the 24 hours in a day. That would mean your application would need to register 1,440 voice commands!

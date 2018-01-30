@@ -1,6 +1,5 @@
 ---
-title: HMT-1 Developer Examples
-description: Camera Applet Example
+title: Camera Applet Example
 ---
 
 ### Get Image
