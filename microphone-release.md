@@ -1,5 +1,5 @@
 ---
-title: HMT-1 Developer Examples
+title: HMT-1 Developer examples
 description: Microphone Release Example
 ---
 

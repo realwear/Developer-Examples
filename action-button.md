@@ -1,5 +1,5 @@
 ---
-title: Action Button Example
+title: Action button example
 ---
 
 The default behavior of the action button is to navigate the user back to the system's home screen. This behavior can be overwritten by an application if required. Since this changes the behavior that the user may expect it is not recommended to use this feature often. 

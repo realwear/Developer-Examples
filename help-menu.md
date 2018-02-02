@@ -1,5 +1,5 @@
 ---
-title: Help Menu Capture Example
+title: Help menu capture example
 ---
 
 Applications should generally display their common commands on screen for the user to easily know what to say, but in some instances this may not be practical. In these instances it is still useful for the user to easily find what voice commands are available. 

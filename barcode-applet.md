@@ -1,6 +1,6 @@
 ---
 title: HMT-1 Developer Examples
-description: Barcode Applet Example
+description: Barcode Applet example
 ---
 
 The HMT-1 barcode application can be used by third party applications. These applications can launch the barcode application which will ask the user to scan a barcode. The data from the captured barcode will be returned to the calling application.

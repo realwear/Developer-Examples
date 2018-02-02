@@ -1,10 +1,10 @@
 ---
-title: Speech Recognizer Example
+title: Speech recognizer example
 ---
 
 Voice commands can be added to an application by updating the resource files, but it's also possible to add them in the source code if required.
 
-## Registering Voice Commands
+## Registering voice commands
 
 Voice commands can be registered by sending a list to WearHF using an intent:
 
@@ -60,7 +60,7 @@ Applications can listen for when the speech recognizer has detected a spoken voi
   };
 ```
 
-## Restore Normal Services
+## Restore normal services
 
 When an application has finished with the speech recognizer it should send a message to restore default behaviour, using the RESTORE_COMMANDS intent.
 

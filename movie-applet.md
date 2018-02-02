@@ -1,5 +1,5 @@
 ---
-title: Movie Applet Example
+title: Movie Applet example
 ---
 
 The movie viewer can be used by third party applications. These applications can launch the movie viewer application directly, and pass in a video file. In order to launch a video the application can pass the location of the file they wish to open. This video must be saved locally on the device.

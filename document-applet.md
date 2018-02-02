@@ -1,8 +1,8 @@
 ---
-title: Document Applet Example
+title: Document Applet example
 ---
 
-## Document Viewer Intent
+## Document viewer intent
 
 The document viewer can be used by third party applications. These applications can launch the document viewer application directly, and pass in a document or image to view. In order to launch a document the application passes the location of the file they wish to open. This document must be saved locally on the device
 

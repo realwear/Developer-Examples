@@ -1,8 +1,8 @@
 ---
-title: Release Notes
+title: Release notes
 ---
 
-## Release Notes
+## Release notes
 
 Below are the release notes for each version of the Developer Examples app.
 

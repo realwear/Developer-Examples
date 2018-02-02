@@ -1,8 +1,8 @@
 ---
-title: Camera Applet Example
+title: Camera Applet example
 ---
 
-### Get Image
+### Get image
 
 In order to get an image back from RealWear's camera application you can use the standard android media intent in order to make a request. Once the request has been made the camera application will pass back the image as an extra with the parameter name of 'data'.
 
@@ -25,7 +25,7 @@ Note: The intent system can only handle up to 1mb when passing data back in a bu
   }
 ```
 
-### Get Image Location
+### Get image location
 
 This mechanism will allow you to pass a URI location to the camera application and the camera application will save the image taken to this location. Once the image has been taken the application will be callback on the onActivityResult method. This will either comeback with a success or error message.
 
