@@ -1,6 +1,6 @@
 remote_theme: "realwear/GitHubPagesTheme@product"
 
-title: Developer Examples
+title: HMT-1 Developer Examples
 
 plugins:
   - jekyll-remote-theme
