@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -26,24 +27,22 @@ public class TTSActivity extends Activity {
     //
     // Intent actions for starting TTS and for being notified it finishes
     //
-    private String ACTION_TTS = "com.realwear.wearhf.intent.action.TTS";
-    private String ACTION_TTS_FINISHED = "com.realwear.wearhf.intent.action.tts_finished";
+    private String ACTION_TTS = "com.realwear.ttsservice.intent.action.TTS";
+    private String ACTION_TTS_FINISHED = "com.realwear.ttsservice.intent.action.TTS_FINISHED";
 
     // Identifiers used when starting TTS commands
     private String EXTRA_TEXT = "text_to_speak";
     private String EXTRA_ID = "tts_id";
     private String EXTRA_PAUSE = "pause_speech_recognizer";
+    private static final int TTS_REQUEST_CODE = 34;
 
-    // Request code identifying dictation events
-    private static final int DICTATION_REQUEST_CODE = 34;
 
     // Dictation intent action
-    private final static String ACTION_DICTATION = "com.realwear.keyboard.intent.action.DICTATION";
+    private final static String ACTION_DICTATION = "com.realwear.wearhf.intent.action.DICTATION";
+    private static final int DICTATION_REQUEST_CODE = 65;
 
     private EditText mTextField;
 
-    // Request code identifying TTS events
-    private static final int TTS_REQUEST_CODE = 34;
 
     /**
      * Called when the activity is created
@@ -69,9 +68,9 @@ public class TTSActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        registerReceiver(ttsReceiver, new IntentFilter(ACTION_TTS_FINISHED));
-
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_TTS_FINISHED);
+        registerReceiver(ttsReceiver, filter);
     }
 
     /**
@@ -80,7 +79,6 @@ public class TTSActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-
         if (ttsReceiver != null) {
             unregisterReceiver(ttsReceiver);
         }
@@ -95,6 +93,7 @@ public class TTSActivity extends Activity {
         mTextField.setText("");
         Intent intent = new Intent(ACTION_DICTATION);
         startActivityForResult(intent, DICTATION_REQUEST_CODE);
+
     }
 
     /**
@@ -105,6 +104,7 @@ public class TTSActivity extends Activity {
     public void onSpeakNow(View v){
 
         String value = mTextField.getText().toString();
+        Log.d("TTSExample", "On Speak Now ");
 
         if(!value.isEmpty()) {
             Intent intent = new Intent(ACTION_TTS);
@@ -112,7 +112,6 @@ public class TTSActivity extends Activity {
             intent.putExtra(EXTRA_ID, TTS_REQUEST_CODE);
             intent.putExtra(EXTRA_PAUSE, false); // Don't pause speech recogniser while TTS is playing
             sendBroadcast(intent);
-
         }
     }
 
@@ -129,7 +128,6 @@ public class TTSActivity extends Activity {
             if (data != null) {
                 result = data.getStringExtra("result");
             }
-
             mTextField.setText(result);
         }
     }
@@ -141,9 +139,13 @@ public class TTSActivity extends Activity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+
             if (intent.getAction().equals(ACTION_TTS_FINISHED)) {
-                Toast.makeText(context, "Done speaking", Toast.LENGTH_SHORT).show();
-            }
+                 int ttsID = intent.getIntExtra(EXTRA_ID, 0);
+                Log.d("TTSExample", "Done Speaking, TTS_ID=" + ttsID);
+             }
+
+
         }
     };
 }
