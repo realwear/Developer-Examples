@@ -2,7 +2,17 @@
 title: Action button example
 ---
 
-The default behavior of the action button is to navigate the user back to the system's home screen. This behavior can be overwritten by an application if required. Since this changes the behavior that the user may expect it is not recommended to use this feature often. 
+The default behavior of the action button is to navigate the user back to the system's home screen. This behavior can be overwritten by an application if required. Since this changes the behavior that the user may expect it is not recommended to use this feature often.
+
+Before capturing the action button you should disable the default behavior of navigating to the home screen:
+
+```java
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    // Disable the action button default behavior
+    mActionButtonImageView.setContentDescription("hf_no_ptt_home");
+  }
+```
 
 The action button functions as a normal key press and so can be handled in the standard Android way for any other key press. The action button's key code is set to 500.
 
