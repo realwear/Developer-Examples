@@ -43,6 +43,7 @@ public class MainMenuTile extends LinearLayout implements View.OnClickListener {
         setImage(imageResID);
         setSmallText(commandResID);
         setOnClickListener(this);
+        setContentDescription(context.getString(commandResID));
     }
 
     /**
