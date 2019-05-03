@@ -87,7 +87,7 @@ public class CameraVideoActivity extends Activity {
     public File generateFile() throws IOException {
         final String fileName = UUID.randomUUID().toString();
 
-        final File mediaStorageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        final File mediaStorageDir = getExternalFilesDir(Environment.DIRECTORY_MOVIES);
 
         return File.createTempFile(
                 fileName,
