@@ -22,10 +22,10 @@
     <!-- Resources for Action Button Activity -->
     <string name="action_button_label">Press the Action Button!</string>
 
-    <!-- Resources for Camera Activity -->
+    <!-- Resources for Camera Photo Activity -->
     <string name="camera_button_label">Launch Camera</string>
 
-    <!-- Resources for VideoRecordingActivity -->
+    <!-- Resources for Camera Video Activity -->
     <string name="basic_video_button_label">Launch Camera (no URI)</string>
     <string name="provider_video_button_label">Launch Camera (specified URI)</string>
 

@@ -19,10 +19,10 @@ import java.util.UUID;
 import android.widget.Button;
 
 /**
- * Activity that shows how to use the camera to take a picture on a HMT-1 device
+ * Activity that shows how to use the camera to record a video on an HMT-1 device
  */
-public class VideoRecordingActivity extends Activity {
-    private final static String TAG = "VideoRecordingActivity";
+public class CameraVideoActivity extends Activity {
+    private final static String TAG = "CameraVideoActivity";
 
     // Request code identifying camera events
     private final static int REQUEST_ID = 123;
@@ -39,7 +39,7 @@ public class VideoRecordingActivity extends Activity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_video_recording);
+        setContentView(R.layout.activity_camera_video);
 
     }
 

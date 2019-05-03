@@ -37,8 +37,8 @@ public class MainActivity extends Activity {
 
         View[] tileList = new View[13];
         tileList[0] = new MainMenuTile(this, R.string.action_button_command, R.drawable.action_button, "ActionButtonActivity");
-        tileList[1] = new MainMenuTile(this, R.string.camera_command, R.drawable.camera, "CameraActivity");
-        tileList[2] = new MainMenuTile(this, R.string.video_command, R.drawable.camera, "VideoRecordingActivity");
+        tileList[1] = new MainMenuTile(this, R.string.camera_command, R.drawable.camera, "CameraPhotoActivity");
+        tileList[2] = new MainMenuTile(this, R.string.video_command, R.drawable.camera, "CameraVideoActivity");
         tileList[3] = new MainMenuTile(this, R.string.document_command, R.drawable.document, "DocumentActivity");
         tileList[4] = new MainMenuTile(this, R.string.movie_command, R.drawable.movie, "MovieActivity");
         tileList[5] = new MainMenuTile(this, R.string.barcode_command, R.drawable.barcode, "BarcodeActivity");
