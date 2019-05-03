@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
 
 import android.widget.Button;
@@ -22,9 +23,6 @@ import android.widget.Button;
  */
 public class VideoRecordingActivity extends Activity {
     private final static String TAG = "VideoRecordingActivity";
-
-    // Location where the video files should be saved within the External Storage Directory
-    private final static String VIDEO_SAVE_FOLDER = "/DCIM/DeveloperExamples/";
 
     // Request code identifying camera events
     private final static int REQUEST_ID = 123;
@@ -46,38 +44,38 @@ public class VideoRecordingActivity extends Activity {
     }
 
     /**
-     * Listener to attempt recording video when the 'Launch Camera' button is clicked.  On Android 8
-     * and above the file provider is used to save and to get files
+     * Listener to attempt recording video when the 'Launch Camera (specified URI)' button is
+     * clicked.  On Android 8 and above the file provider is used to save and to get files
      *
-     * @param view The 'Launch Camera (Android 8)' {@link Button}
+     * @param view The 'Launch Camera (specified URI)' {@link Button}
      */
     public void onLaunchCameraFileProvider(View view) {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            final Uri videoUri = FileProvider.getUriForFile(
-                    getApplicationContext(),
-                    getApplicationContext().getPackageName() + ".fileprovider",
-                    generateFile());
+            try {
+                final Uri videoUri = FileProvider.getUriForFile(
+                        getApplicationContext(),
+                        getApplicationContext().getPackageName() + ".fileprovider",
+                        generateFile());
 
-            final Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-            videoIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
-            startActivityForResult(videoIntent, REQUEST_ID);
+                final Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                videoIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+                startActivityForResult(videoIntent, REQUEST_ID);
+            } catch (IOException e) {
+                Log.e(TAG, "Error creating video file.", e);
+            }
         } else {
             Log.e(TAG, "Android version must be >= 8");
         }
     }
 
     /**
-     * Listener to attempt recording video when the 'Launch Camera' button is clicked
+     * Listener to attempt recording video when the 'Launch Camera (no URI)' button is clicked
      *
-     * @param view The 'Launch Camera (Android 6)' {@link Button}
+     * @param view The 'Launch Camera (no URI)' {@link Button}
      */
     public void onLaunchCameraBasic(View view) {
-        final Uri videoUri = Uri.fromFile(generateFile());
-
         final Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        videoIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        videoIntent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
         startActivityForResult(videoIntent, REQUEST_ID);
     }
 
@@ -86,14 +84,15 @@ public class VideoRecordingActivity extends Activity {
      *
      * @return A {@link File} object where a video can be recorded
      */
-    public File generateFile() {
-        final String fileName = UUID.randomUUID().toString().concat(".mp4");
+    public File generateFile() throws IOException {
+        final String fileName = UUID.randomUUID().toString();
 
-        final File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), VIDEO_SAVE_FOLDER);
-        if (!mediaStorageDir.exists()) {
-            mediaStorageDir.mkdirs();
-        }
+        final File mediaStorageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
-        return new File(mediaStorageDir.getPath(), fileName);
+        return File.createTempFile(
+                fileName,
+                ".mp4",
+                mediaStorageDir
+        );
     }
 }

@@ -24,4 +24,14 @@
         android:onClick="onLaunchCameraBasic"
         android:text="@string/basic_video_button_label"
         android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/camera_image_view"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/camera" />
 </RelativeLayout>

@@ -26,8 +26,8 @@
     <string name="camera_button_label">Launch Camera</string>
 
     <!-- Resources for VideoRecordingActivity -->
-    <string name="basic_video_button_label">Launch Camera (Android 6)</string>
-    <string name="provider_video_button_label">Launch Camera (Android 8)</string>
+    <string name="basic_video_button_label">Launch Camera (no URI)</string>
+    <string name="provider_video_button_label">Launch Camera (specified URI)</string>
 
     <!-- Resources for Document Activity -->
     <string name="document_button_label">Launch Document Viewer</string>
