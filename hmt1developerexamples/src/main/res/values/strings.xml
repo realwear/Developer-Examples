@@ -26,8 +26,8 @@
     <string name="camera_button_label">Launch Camera</string>
 
     <!-- Resources for Camera Video Activity -->
-    <string name="basic_video_button_label">Launch Camera (no URI)</string>
-    <string name="provider_video_button_label">Launch Camera (specified URI)</string>
+    <string name="basic_video_button_label">Launch Camera (default location)</string>
+    <string name="provider_video_button_label">Launch Camera (specified location)</string>
 
     <!-- Resources for Document Activity -->
     <string name="document_button_label">Launch Document Viewer</string>
