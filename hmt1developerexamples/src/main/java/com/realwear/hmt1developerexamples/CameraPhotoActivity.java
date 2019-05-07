@@ -19,7 +19,7 @@ import android.widget.ImageView;
 /**
  * Activity that shows how to use the camera to take a picture on a HMT-1 device
  */
-public class CameraActivity extends Activity {
+public class CameraPhotoActivity extends Activity {
 
     // Request code identifying camera events
     private static final int CAMERA_REQUEST_CODE = 1889;
@@ -41,7 +41,7 @@ public class CameraActivity extends Activity {
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.camera_main);
+        setContentView(R.layout.activity_camera_photo);
 
         mImageView = (ImageView) findViewById(R.id.camera_image_view);
     }

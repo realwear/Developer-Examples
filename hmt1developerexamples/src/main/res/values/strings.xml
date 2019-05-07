@@ -3,7 +3,8 @@
 
     <!-- Main Screen Commands -->
     <string name="action_button_command">Action Button</string>
-    <string name="camera_command">Camera Applet</string>
+    <string name="camera_command">Camera Applet (Photo)</string>
+    <string name="video_command">Camera Applet (Video)</string>
     <string name="document_command">Document Applet</string>
     <string name="movie_command">Movie Applet</string>
     <string name="barcode_command">Barcode Applet</string>
@@ -21,8 +22,12 @@
     <!-- Resources for Action Button Activity -->
     <string name="action_button_label">Press the Action Button!</string>
 
-    <!-- Resources for Camera Activity -->
+    <!-- Resources for Camera Photo Activity -->
     <string name="camera_button_label">Launch Camera</string>
+
+    <!-- Resources for Camera Video Activity -->
+    <string name="basic_video_button_label">Launch Camera (default location)</string>
+    <string name="provider_video_button_label">Launch Camera (specified location)</string>
 
     <!-- Resources for Document Activity -->
     <string name="document_button_label">Launch Document Viewer</string>
