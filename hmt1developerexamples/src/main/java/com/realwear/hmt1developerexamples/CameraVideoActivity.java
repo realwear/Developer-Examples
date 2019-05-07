@@ -45,12 +45,11 @@ public class CameraVideoActivity extends Activity {
 
     /**
      * Listener to attempt recording video when the 'Launch Camera (specified URI)' button is
-     * clicked.  On Android 8 and above the file provider is used to save and to get files
+     * clicked.  The file provider is used to save and to get files
      *
      * @param view The 'Launch Camera (specified URI)' {@link Button}
      */
     public void onLaunchCameraFileProvider(View view) {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
                 final Uri videoUri = FileProvider.getUriForFile(
                         getApplicationContext(),
@@ -64,9 +63,6 @@ public class CameraVideoActivity extends Activity {
             } catch (IOException e) {
                 Log.e(TAG, "Error creating video file.", e);
             }
-        } else {
-            Log.e(TAG, "Android version must be >= 8");
-        }
     }
 
     /**
