@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -64,11 +65,18 @@ public class MovieActivity extends Activity {
             return;
         }
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
-        intent.setDataAndType(Uri.fromFile(mSampleFile), sampleMimeType);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        final Uri contentUri = FileProvider.getUriForFile(
+                getApplicationContext(),
+                getApplicationContext().getPackageName() + ".fileprovider",
+                mSampleFile);
 
-        startActivity(intent);
+
+            final Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+            viewIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            viewIntent.setDataAndType(contentUri, sampleMimeType);
+            viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            startActivity(viewIntent);
     }
 }
