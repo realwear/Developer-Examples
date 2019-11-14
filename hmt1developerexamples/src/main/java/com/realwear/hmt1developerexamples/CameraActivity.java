@@ -14,7 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -23,7 +23,6 @@ import java.io.File;
 import java.util.UUID;
 
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
-import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
 
 /**
  * Activity that shows how to use the camera to take a picture on a HMT-1 device
@@ -111,6 +110,8 @@ public class CameraActivity extends Activity {
                     intent.setAction(Intent.ACTION_VIEW);
                     intent.addFlags(FLAG_GRANT_READ_URI_PERMISSION);
                     intent.setDataAndType(contentUri, "image/*");
+                    intent.putExtra("zoom","2");
+
                     startActivityForResult(intent, 1234);
                     break;
             }
