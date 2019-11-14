@@ -60,25 +60,21 @@ public class MovieActivity extends Activity {
      */
     public void onLaunchVideo(View view) {
         if (mSampleFile == null) {
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Failed to find sample file",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Failed to find sample file",Toast.LENGTH_LONG).show();
             return;
         }
 
         final Uri contentUri = FileProvider.getUriForFile(
-                getApplicationContext(),
-                getApplicationContext().getPackageName() + ".fileprovider",
-                mSampleFile);
+            getApplicationContext(),
+            getApplicationContext().getPackageName() + ".fileprovider",
+            mSampleFile);
 
+        final Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+        viewIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        viewIntent.setDataAndType(contentUri, sampleMimeType);
+        viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            final Intent viewIntent = new Intent(Intent.ACTION_VIEW);
-            viewIntent.addCategory(Intent.CATEGORY_DEFAULT);
-            viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            viewIntent.setDataAndType(contentUri, sampleMimeType);
-            viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            startActivity(viewIntent);
+        startActivity(viewIntent);
     }
 }
