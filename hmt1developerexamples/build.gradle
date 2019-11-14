@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-8
+
     defaultConfig {
         applicationId "com.realwear.hmt1developerexamples"
         minSdkVersion 23
