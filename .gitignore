@@ -7,3 +7,9 @@
 /build
 /captures
 .idea/
+Developer-Examples/build/
+Developer-Examples/hmt1developerexamples/build/
+Developer-Examples/local.properties
+hmt1developerexamples/debug/
+hmt1developerexamples/release/
+gradle/wrapper/gradle-wrapper.properties

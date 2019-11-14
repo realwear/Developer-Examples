@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -46,6 +47,8 @@ public class BNFGrammarActivity extends Activity {
             "<Minute>:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|56|57|58|59;\n" +
             "<Hour>:1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24;";
 
+    private Handler mHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +57,8 @@ public class BNFGrammarActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.bnf_activity);
+
+        mHandler = new Handler();
     }
 
     @Override
@@ -75,7 +80,14 @@ public class BNFGrammarActivity extends Activity {
 
         registerReceiver(asrBroadcastReceiver, new IntentFilter(ACTION_SPEECH_EVENT));
 
-        sendCommands();
+        // send the commands delayed to make sure the app is opened on the screen before
+        // registering the commands
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sendCommands();
+            }
+        }, 300);
     }
 
     /**
@@ -85,7 +97,7 @@ public class BNFGrammarActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (action.equals(ACTION_SPEECH_EVENT)) {
+            if (action != null && action.equals(ACTION_SPEECH_EVENT)) {
                 String asrCommand = intent.getStringExtra("command");
                 Log.d("asrCommand", "onReceive: " + asrCommand);
                 Toast.makeText(getBaseContext(), asrCommand, Toast.LENGTH_LONG).show();

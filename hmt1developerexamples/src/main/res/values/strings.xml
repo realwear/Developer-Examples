@@ -22,7 +22,8 @@
     <string name="action_button_label">Press the Action Button!</string>
 
     <!-- Resources for Camera Activity -->
-    <string name="camera_button_label">Launch Camera</string>
+    <string name="camera_button_label_basic">Bitmap Camera</string>
+    <string name="camera_button_label_fileprovider">File Provider Camera</string>
 
     <!-- Resources for Document Activity -->
     <string name="document_button_label">Launch Document Viewer</string>

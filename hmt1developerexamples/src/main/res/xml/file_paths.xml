@@ -1,0 +1,5 @@
+<paths>
+    <external-files-path name="my_photos" path="DCIM" />
+    <external-files-path name="my_documents" path="Documents" />
+    <external-files-path name="my_movies" path="Movies" />
+</paths>
