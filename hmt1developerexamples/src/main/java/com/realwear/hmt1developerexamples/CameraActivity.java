@@ -99,12 +99,12 @@ public class CameraActivity extends Activity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && data != null) {
             switch(requestCode) {
-                case BASIC_CAMERA_REQUEST_CODE: //Display Bitmap received from Camera
+                case BASIC_CAMERA_REQUEST_CODE: // Display Bitmap received from Camera
                     Bitmap photo = data.getExtras().getParcelable(EXTRA_RESULT);
                     mImageView.setImageBitmap(photo);
                     break;
 
-                case FILEPROVIDER_CAMERA_REQUEST_CODE: //View saved file in DocumentViewer
+                case FILEPROVIDER_CAMERA_REQUEST_CODE: // View saved file in DocumentViewer
 
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
