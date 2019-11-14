@@ -58,20 +58,25 @@ public class CameraActivity extends Activity {
     }
 
     /**
-     * Listener for when a the launch camera button is clicked
+     * Listener for when the basic camera button is clicked
      *
      * @param view The launch camera button
      */
     public void onLaunchCameraBasic(View view) {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); //OR ACTION_VIDEO_CAPTURE
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); // OR ACTION_VIDEO_CAPTURE
         startActivityForResult(intent, BASIC_CAMERA_REQUEST_CODE);
     }
 
+    /**
+     * Listener for when the FileProvider camera button is clicked
+     *
+     * @param view The FileProvider camera button
+     */
     public void onLaunchCameraFileProvider(View view) {
 
             final File mediaStorageDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
 
-            File file = new File(mediaStorageDir, "devexamples-" + UUID.randomUUID() + ".jpg");
+            final File file = new File(mediaStorageDir, "devexamples-" + UUID.randomUUID() + ".jpg");
 
             contentUri = FileProvider.getUriForFile(
                     getApplicationContext(),
@@ -83,7 +88,6 @@ public class CameraActivity extends Activity {
             captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
 
             startActivityForResult(captureIntent, FILEPROVIDER_CAMERA_REQUEST_CODE);
-
     }
 
     /**
@@ -109,7 +113,6 @@ public class CameraActivity extends Activity {
                     intent.setDataAndType(contentUri, "image/*");
                     startActivityForResult(intent, 1234);
                     break;
-
             }
         }
     }

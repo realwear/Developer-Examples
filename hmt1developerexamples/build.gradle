@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 27
 8
     defaultConfig {
         applicationId "com.realwear.hmt1developerexamples"
-        minSdkVersion 27
+        minSdkVersion 23
+        buildToolsVersion "25.0.2"
         //noinspection ExpiredTargetSdkVersion
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 120
         versionName "1.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

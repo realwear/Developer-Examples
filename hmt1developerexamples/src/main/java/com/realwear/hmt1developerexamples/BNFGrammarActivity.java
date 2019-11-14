@@ -1,4 +1,4 @@
-/*
+/**
  * RealWear Development Software, Source Code and Object Code
  * (c) RealWear, Inc. All rights reserved.
  * <p>

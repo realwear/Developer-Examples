@@ -58,17 +58,13 @@ public class DocumentActivity extends Activity {
      * @param view The launch launch document viewer button
      */
     public void onLaunchDocument(View view) {
-
         final Uri contentUri = FileProvider.getUriForFile(
                 getApplicationContext(),
                 getApplicationContext().getPackageName() + ".fileprovider",
                 mSampleFile);
 
         if (mSampleFile == null) {
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Failed to find sample file",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Failed to find sample file",Toast.LENGTH_LONG).show();
             return;
         }
 
