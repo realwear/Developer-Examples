@@ -17,38 +17,18 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
- * Activity that shows how to register voice commands with the ASR on a HMT-1 device
+ * Activity that shows how to register voice commands with the ASR on a HMT-1 device.
  */
 public class SpeechRecognizerActivity extends Activity {
-
-    //
-    // Intent actions for registering voice commands and for being notified when they are triggered
-    //
-    private static final String ACTION_OVERRIDE_COMMANDS =
-            "com.realwear.wearhf.intent.action.OVERRIDE_COMMANDS";
+    // The action that WearHF will use for broadcasting when a voice command is spoken.
     private static final String ACTION_SPEECH_EVENT =
             "com.realwear.wearhf.intent.action.SPEECH_EVENT";
-    private static final String ACTION_RESTORE_COMMANDS =
-            "com.realwear.wearhf.intent.action.RESTORE_COMMANDS";
 
-    // Identifier for the package that is setting the voice commands
-    private static final String EXTRA_SOURCE_PACKAGE =
-            "com.realwear.wearhf.intent.extra.SOURCE_PACKAGE";
-
-    // Identifier used when registering voice commands
-    private static final String EXTRA_COMMANDS =
-            "com.realwear.wearhf.intent.extra.COMMANDS";
-
-    // Identifier for when a voice command is triggered
+    // Identifier for the voice command that was is spoken.
     private static final String EXTRA_RESULT = "command";
 
     private TextView mQuantityView;
 
-    /**
-     * Called when the activity is created
-     *
-     * @param savedInstanceState See Android docs
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,23 +38,24 @@ public class SpeechRecognizerActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.speech_main);
 
-        mQuantityView = (TextView) findViewById(R.id.quantityView);
+        mQuantityView = findViewById(R.id.quantityView);
+
+        //
+        // Set the voice commands for this screen.
+        // We are adding the voice commands to the TextView in the layout, but they can be added
+        // to any view.
+        // The broadcast receiver will get the result when the voice command is spoken.
+        //
+        mQuantityView.setContentDescription("hf_add_commands:Quantity 1|Quantity 2|Quantity 3");
     }
 
-    /**
-     * Called when activity is resumed - See Android docs
-     */
     @Override
     protected void onResume() {
         super.onResume();
 
         registerReceiver(asrBroadcastReceiver, new IntentFilter(ACTION_SPEECH_EVENT));
-        sendCommands();
     }
 
-    /**
-     * Called when activity is paused - See Android docs
-     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -82,14 +63,10 @@ public class SpeechRecognizerActivity extends Activity {
         if (asrBroadcastReceiver != null) {
             unregisterReceiver(asrBroadcastReceiver);
         }
-
-        Intent intent = new Intent(ACTION_RESTORE_COMMANDS);
-        intent.putExtra(EXTRA_SOURCE_PACKAGE, getPackageName());
-        sendBroadcast(intent);
     }
 
     /**
-     * Broadcast receiver for being notified when voice commands are triggered
+     * Broadcast receiver for being notified when voice commands are triggered.
      */
     private BroadcastReceiver asrBroadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -98,25 +75,7 @@ public class SpeechRecognizerActivity extends Activity {
             if (action.equals(ACTION_SPEECH_EVENT)) {
                 String asrCommand = intent.getStringExtra(EXTRA_RESULT);
                 mQuantityView.setText(asrCommand);
-
-                sendCommands();
             }
         }
     };
-
-    /**
-     * Register voice commands
-     */
-    private void sendCommands() {
-        String commands[] = new String[20];
-        for (int i = 0; i < commands.length; i++) {
-            commands[i] = "Quantity " + (i + 1);
-        }
-
-        Intent intent = new Intent(ACTION_OVERRIDE_COMMANDS);
-        intent.putExtra(EXTRA_SOURCE_PACKAGE, getPackageName());
-        intent.putExtra(EXTRA_COMMANDS, commands);
-        sendBroadcast(intent);
-    }
 }
-
