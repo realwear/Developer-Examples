@@ -39,7 +39,7 @@
     <string name="tts_speech_hint">(Dont forget to install the TTS Language Pack APK from the RealWear Cloud)</string>
 
     <!-- Resources for Speech Activity -->
-    <string name="speech_label">Speak a quantity from 1 to 20</string>
+    <string name="speech_label">Speak a quantity from 1 to 3</string>
 
     <!-- Resources for Dictation Activity -->
     <string name="dictation_button">Start Dictation</string>
