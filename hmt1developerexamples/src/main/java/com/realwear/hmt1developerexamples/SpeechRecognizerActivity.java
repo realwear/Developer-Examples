@@ -20,11 +20,26 @@ import android.widget.TextView;
  * Activity that shows how to register voice commands with the ASR on a HMT-1 device.
  */
 public class SpeechRecognizerActivity extends Activity {
-    // The action that WearHF will use for broadcasting when a voice command is spoken.
+
+    //
+    // Intent actions for registering voice commands and for being notified when they are triggered
+    //
+    private static final String ACTION_OVERRIDE_COMMANDS =
+            "com.realwear.wearhf.intent.action.OVERRIDE_COMMANDS";
     private static final String ACTION_SPEECH_EVENT =
             "com.realwear.wearhf.intent.action.SPEECH_EVENT";
+    private static final String ACTION_RESTORE_COMMANDS =
+            "com.realwear.wearhf.intent.action.RESTORE_COMMANDS";
 
-    // Identifier for the voice command that was is spoken.
+    // Identifier for the package that is setting the voice commands
+    private static final String EXTRA_SOURCE_PACKAGE =
+            "com.realwear.wearhf.intent.extra.SOURCE_PACKAGE";
+
+    // Identifier used when registering voice commands
+    private static final String EXTRA_COMMANDS =
+            "com.realwear.wearhf.intent.extra.COMMANDS";
+
+    // Identifier for when a voice command is triggered
     private static final String EXTRA_RESULT = "command";
 
     private TextView mQuantityView;
@@ -39,14 +54,6 @@ public class SpeechRecognizerActivity extends Activity {
         setContentView(R.layout.speech_main);
 
         mQuantityView = findViewById(R.id.quantityView);
-
-        //
-        // Set the voice commands for this screen.
-        // We are adding the voice commands to the TextView in the layout, but they can be added
-        // to any view.
-        // The broadcast receiver will get the result when the voice command is spoken.
-        //
-        mQuantityView.setContentDescription("hf_add_commands:Quantity 1|Quantity 2|Quantity 3");
     }
 
     @Override
@@ -54,6 +61,8 @@ public class SpeechRecognizerActivity extends Activity {
         super.onResume();
 
         registerReceiver(asrBroadcastReceiver, new IntentFilter(ACTION_SPEECH_EVENT));
+
+        sendCommands();
     }
 
     @Override
@@ -63,6 +72,10 @@ public class SpeechRecognizerActivity extends Activity {
         if (asrBroadcastReceiver != null) {
             unregisterReceiver(asrBroadcastReceiver);
         }
+
+        Intent intent = new Intent(ACTION_RESTORE_COMMANDS);
+        intent.putExtra(EXTRA_SOURCE_PACKAGE, getPackageName());
+        sendBroadcast(intent);
     }
 
     /**
@@ -76,6 +89,23 @@ public class SpeechRecognizerActivity extends Activity {
                 String asrCommand = intent.getStringExtra(EXTRA_RESULT);
                 mQuantityView.setText(asrCommand);
             }
+
+            sendCommands();
         }
     };
+
+    /**
+     * Register voice commands
+     */
+    private void sendCommands() {
+        String commands[] = new String[20];
+        for (int i = 0; i < commands.length; i++) {
+            commands[i] = "Quantity " + (i + 1);
+        }
+
+        Intent intent = new Intent(ACTION_OVERRIDE_COMMANDS);
+        intent.putExtra(EXTRA_SOURCE_PACKAGE, getPackageName());
+        intent.putExtra(EXTRA_COMMANDS, commands);
+        sendBroadcast(intent);
+    }
 }
