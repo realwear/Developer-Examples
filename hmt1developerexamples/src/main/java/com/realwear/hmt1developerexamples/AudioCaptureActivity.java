@@ -7,7 +7,9 @@
 
 package com.realwear.hmt1developerexamples;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
@@ -23,6 +25,10 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -91,6 +97,15 @@ public class AudioCaptureActivity extends Activity implements Runnable {
         mRate16Button = (RadioButton) findViewById(R.id.rate16Button);
         mRate44Button = (RadioButton) findViewById(R.id.rate44Button);
         mRate48Button = (RadioButton) findViewById(R.id.rate48Button);
+
+        // Check that permissions are granted before continuing
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        }
     }
 
     /**
@@ -488,5 +503,18 @@ public class AudioCaptureActivity extends Activity implements Runnable {
      */
     private static byte[] shortToByteArray(short data) {
         return new byte[]{(byte) (data & 0xff), (byte) ((data >> 8) & 0xff)};
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        for (int grantResult : grantResults) {
+            if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                setResult(-1);
+                Toast.makeText(this, R.string.permissions_error, Toast.LENGTH_LONG).show();
+                finish();
+            }
+        }
     }
 }
