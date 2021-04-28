@@ -1,7 +1,7 @@
-/**
- * RealWear Development Software, Source Code and Object Code
+/*
+ * RealWear Development Software, Source Code and Object Code.
  * (c) RealWear, Inc. All rights reserved.
- * <p>
+ *
  * Contact info@realwear.com for further information about the use of this code.
  */
 
@@ -17,6 +17,7 @@ import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -40,7 +41,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Activity that shows how capture audio at different frequencies on a HMT-1 device
+ * Activity that shows how capture audio at different frequencies on a HMT-1 device.
  */
 public class AudioCaptureActivity extends Activity implements Runnable {
     private final static String TAG = "HMT1DevApp-Audio";
@@ -65,17 +66,11 @@ public class AudioCaptureActivity extends Activity implements Runnable {
     private String mSampleRatedString;
     private short mChannels;
     private String mChannelsString;
-    private String mFilename;
 
     private AudioRecord mAudioRecorder;
 
     private Thread mMotor;
 
-    /**
-     * Called when the activity is created
-     *
-     * @param savedInstanceState See Android docs
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,32 +80,27 @@ public class AudioCaptureActivity extends Activity implements Runnable {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.audio_capture_main);
 
-        mRecordButton = (Button) findViewById(R.id.recordButton);
-        mPlaybackButton = (Button) findViewById(R.id.playbackButton);
-        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-        mFilenameLabel = (TextView) findViewById(R.id.fileTextLabel);
+        mRecordButton = findViewById(R.id.recordButton);
+        mPlaybackButton = findViewById(R.id.playbackButton);
+        mProgressBar = findViewById(R.id.progressBar);
+        mFilenameLabel = findViewById(R.id.fileTextLabel);
 
-        mMonoButton = (RadioButton) findViewById(R.id.monoButton);
-        mStereoButton = (RadioButton) findViewById(R.id.stereoButton);
+        mMonoButton = findViewById(R.id.monoButton);
+        mStereoButton = findViewById(R.id.stereoButton);
 
-        mRate8Button = (RadioButton) findViewById(R.id.rate8Button);
-        mRate16Button = (RadioButton) findViewById(R.id.rate16Button);
-        mRate44Button = (RadioButton) findViewById(R.id.rate44Button);
-        mRate48Button = (RadioButton) findViewById(R.id.rate48Button);
+        mRate8Button = findViewById(R.id.rate8Button);
+        mRate16Button = findViewById(R.id.rate16Button);
+        mRate44Button = findViewById(R.id.rate44Button);
+        mRate48Button = findViewById(R.id.rate48Button);
 
         // Check that permissions are granted before continuing
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this, new String[]{Manifest.permission.RECORD_AUDIO}, 0);
         }
     }
 
-    /**
-     * Called when activity is resumed - See Android docs
-     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -119,16 +109,12 @@ public class AudioCaptureActivity extends Activity implements Runnable {
         mPlaybackButton.setEnabled(true);
         mProgressBar.setVisibility(View.INVISIBLE);
         mFilenameLabel.setText("");
-        mFilename = "";
 
         setButtonState(true);
         mRate44Button.performClick();
         mStereoButton.performClick();
     }
 
-    /**
-     * Called when activity is paused - See Android docs
-     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -158,12 +144,6 @@ public class AudioCaptureActivity extends Activity implements Runnable {
      * @param view The start record button
      */
     public void onStartRecord(View view) {
-        mFilename = mFilenameLabel.getText().toString();
-        if (mFilename.isEmpty()) {
-            Toast.makeText(this, "No file to record to", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         int monoOrStereo = mChannels == 1 ?
                 AudioFormat.CHANNEL_IN_MONO : AudioFormat.CHANNEL_IN_STEREO;
 
@@ -197,15 +177,11 @@ public class AudioCaptureActivity extends Activity implements Runnable {
      * @param view The start playback button
      */
     public void onStartPlayback(View view) {
-        mFilename = mFilenameLabel.getText().toString();
-        if (mFilename.isEmpty()) {
-            Toast.makeText(this, "No file to play back", Toast.LENGTH_LONG).show();
-            return;
-        }
+        final File recordingFile = getRecordingFile();
 
         try {
             final MediaPlayer mp = new MediaPlayer();
-            mp.setDataSource(mFilename);
+            mp.setDataSource(recordingFile.getAbsolutePath());
             mp.prepare();
             mp.start();
 
@@ -267,7 +243,7 @@ public class AudioCaptureActivity extends Activity implements Runnable {
             mAudioRecorder.release();
             mAudioRecorder = null;
 
-            writeWAVFile(mFilename, bos, bitsPerSecond);
+            writeWAVFile(getRecordingFile(), bos, bitsPerSecond);
         }
 
         runOnUiThread(new Runnable() {
@@ -342,9 +318,18 @@ public class AudioCaptureActivity extends Activity implements Runnable {
      * Updated the filename based on the selected settings
      */
     private void updateFileName() {
-        mFilename =
-                "/sdcard/music/audio_test_" + mSampleRatedString + "_" + mChannelsString + ".wav";
-        mFilenameLabel.setText(mFilename);
+        mFilenameLabel.setText(getRecordingFile().toString());
+    }
+
+    /**
+     * Get the file that for recording and playing back an audio file based on the current settings.
+     *
+     * @return The file that should be used.
+     */
+    private File getRecordingFile() {
+        final String filename = "audio_test_" + mSampleRatedString + "_" + mChannelsString + ".wav";
+        final File mediaStorageDir = getExternalFilesDir(Environment.DIRECTORY_MUSIC);
+        return new File(mediaStorageDir, filename);
     }
 
     /**
@@ -366,18 +351,16 @@ public class AudioCaptureActivity extends Activity implements Runnable {
     }
 
     /**
-     * Write the recorded audio data to a wav file
+     * Write the recorded audio data to a wav file.
      *
-     * @param filename     The path to the file to create
-     * @param outputStream The recorded audio data
+     * @param file         The file to write audio data to.
+     * @param outputStream The recorded audio data.
      */
-    private void writeWAVFile(
-            String filename, ByteArrayOutputStream outputStream, int bitsPerSamples) {
-
+    private void writeWAVFile(File file, ByteArrayOutputStream outputStream, int bitsPerSamples) {
         byte[] audioData = outputStream.toByteArray();
 
         try {
-            FileOutputStream fos = new FileOutputStream(filename);
+            FileOutputStream fos = new FileOutputStream(file);
             DataOutputStream dos = new DataOutputStream(fos);
 
             writeWaveFileHeader(dos, audioData.length, bitsPerSamples);
@@ -393,7 +376,6 @@ public class AudioCaptureActivity extends Activity implements Runnable {
             Log.e(TAG, "Error writing wav file: ", ex);
         }
 
-        File file = new File(filename);
         rescanFolder(file.getParent());
     }
 
@@ -505,9 +487,9 @@ public class AudioCaptureActivity extends Activity implements Runnable {
         return new byte[]{(byte) (data & 0xff), (byte) ((data >> 8) & 0xff)};
     }
 
-
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         for (int grantResult : grantResults) {
             if (grantResult != PackageManager.PERMISSION_GRANTED) {
