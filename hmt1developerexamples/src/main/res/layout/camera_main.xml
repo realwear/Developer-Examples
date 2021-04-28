@@ -36,9 +36,7 @@
             android:layout_centerHorizontal="true"
             android:onClick="onLaunchBitmapPhoto"
             android:text="@string/camera_button_bitmap_photo"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fpBtn" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/fileProviderPhoto"
@@ -48,9 +46,7 @@
             android:layout_toEndOf="@id/bitmapPhoto"
             android:onClick="onLaunchFileProviderPhoto"
             android:text="@string/camera_button_file_provider_photo"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/basicBtn" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -71,9 +67,7 @@
             android:layout_centerHorizontal="true"
             android:onClick="onLaunchBasicVideo"
             android:text="@string/camera_button_basic_video"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fpBtn" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/fileProviderVideo"
@@ -83,9 +77,7 @@
             android:layout_toEndOf="@id/basicVideo"
             android:onClick="onLaunchFileProviderVideo"
             android:text="@string/camera_button_file_provider_video"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/basicBtn" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
