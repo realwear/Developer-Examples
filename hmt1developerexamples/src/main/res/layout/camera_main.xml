@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="hf_no_number">
-
 
     <ImageView
         android:id="@+id/camera_image_view"
@@ -21,45 +19,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/photoButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/videoButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/bitmapPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onLaunchBitmapPhoto"
+            android:text="@string/camera_button_bitmap_photo"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/fileProviderPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/bitmapPhoto"
+            android:onClick="onLaunchFileProviderPhoto"
+            android:text="@string/camera_button_file_provider_photo"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/videoButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <Button
-            android:id="@+id/basicBtn"
+            android:id="@+id/basicVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            android:onClick="onLaunchCameraBasic"
-            android:text="@string/camera_button_label_basic"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fpBtn" />
+            android:onClick="onLaunchBasicVideo"
+            android:text="@string/camera_button_basic_video"
+            android:textSize="18sp" />
 
         <Button
-            android:id="@+id/fpBtn"
+            android:id="@+id/fileProviderVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
-            android:layout_toEndOf="@id/basicBtn"
-            android:onClick="onLaunchCameraFileProvider"
-            android:text="@string/camera_button_label_fileprovider"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/basicBtn" />
+            android:layout_toEndOf="@id/basicVideo"
+            android:onClick="onLaunchFileProviderVideo"
+            android:text="@string/camera_button_file_provider_video"
+            android:textSize="18sp" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

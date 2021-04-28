@@ -22,8 +22,10 @@
     <string name="action_button_label">Press the Action Button!</string>
 
     <!-- Resources for Camera Activity -->
-    <string name="camera_button_label_basic">Bitmap Camera</string>
-    <string name="camera_button_label_fileprovider">File Provider Camera</string>
+    <string name="camera_button_bitmap_photo">Bitmap Photo</string>
+    <string name="camera_button_file_provider_photo">File Provider Photo</string>
+    <string name="camera_button_basic_video">Basic Video</string>
+    <string name="camera_button_file_provider_video">File Provider Video</string>
 
     <!-- Resources for Document Activity -->
     <string name="document_button_label">Launch Document Viewer</string>
@@ -49,4 +51,7 @@
     <string name="show_help_hint">Say \"Show Help\" to see available commands</string>
     <string name="speak_now">Speak Now</string>
     <string name="bnf_help">Please say the time <p></p><p></p> Example: One Forty Five</string>
+
+    <!-- Resources for Audio Capture Activity -->
+    <string name="permissions_error">This activity cannot launch without required permissions.</string>
 </resources>
