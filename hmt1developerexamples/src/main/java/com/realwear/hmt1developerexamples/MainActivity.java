@@ -1,31 +1,28 @@
-/**
- * RealWear Development Software, Source Code and Object Code
+/*
+ * RealWear Development Software, Source Code and Object Code.
  * (c) RealWear, Inc. All rights reserved.
- * <p>
+ *
  * Contact info@realwear.com for further information about the use of this code.
  */
 
 package com.realwear.hmt1developerexamples;
 
 import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.GridView;
+import android.widget.TextView;
 
 /**
- * Main activity which displays a list of examples to the user
+ * Main activity which displays a list of examples to the user.
  */
 public class MainActivity extends Activity {
+    private static final String TAG = "DevEx";
 
-    private MainMenuTileAdaptor mMainMenuTileAdaptor;
-    private GridView mGridView;
-
-    /**
-     * Called when the activity is created
-     *
-     * @param savedInstanceState See Android docs
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,24 +32,54 @@ public class MainActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        View[] tileList = new View[12];
-        tileList[0] = new MainMenuTile(this, R.string.action_button_command, R.drawable.action_button, "ActionButtonActivity");
-        tileList[1] = new MainMenuTile(this, R.string.camera_command, R.drawable.camera, "CameraActivity");
-        tileList[2] = new MainMenuTile(this, R.string.document_command, R.drawable.document, "DocumentActivity");
-        tileList[3] = new MainMenuTile(this, R.string.movie_command, R.drawable.movie, "MovieActivity");
-        tileList[4] = new MainMenuTile(this, R.string.barcode_command, R.drawable.barcode, "BarcodeActivity");
+        final View[] tileList = new View[]{
+                createMenuTile(R.string.action_button_command, R.drawable.action_button, "ActionButtonActivity"),
+                createMenuTile(R.string.camera_command, R.drawable.camera, "CameraActivity"),
+                createMenuTile(R.string.document_command, R.drawable.document, "DocumentActivity"),
+                createMenuTile(R.string.movie_command, R.drawable.movie, "MovieActivity"),
+                createMenuTile(R.string.barcode_command, R.drawable.barcode, "BarcodeActivity"),
 
-        tileList[5] = new MainMenuTile(this, R.string.asr_command, R.drawable.asr, "SpeechRecognizerActivity");
-        tileList[6] = new MainMenuTile(this, R.string.dication_command, R.drawable.dictation, "DictationActivity");
-        tileList[7] = new MainMenuTile(this, R.string.tts_command, R.drawable.tts, "TTSActivity");
-        tileList[8] = new MainMenuTile(this, R.string.mute_command, R.drawable.microphone_off, "MicrophoneReleaseActivity");
-        tileList[9] = new MainMenuTile(this, R.string.audio_command, R.drawable.asr, "AudioCaptureActivity");
+                createMenuTile(R.string.asr_command, R.drawable.asr, "SpeechRecognizerActivity"),
+                createMenuTile(R.string.dication_command, R.drawable.dictation, "DictationActivity"),
+                createMenuTile(R.string.tts_command, R.drawable.tts, "TTSActivity"),
+                createMenuTile(R.string.mute_command, R.drawable.microphone_off, "MicrophoneReleaseActivity"),
+                createMenuTile(R.string.audio_command, R.drawable.asr, "AudioCaptureActivity"),
 
-        tileList[10] = new MainMenuTile(this, R.string.showhelp_command, R.drawable.show_help, "ShowHelpActivity");
-        tileList[11] = new MainMenuTile(this, R.string.bnf_command, R.drawable.ic_format_quote_black_24dp, "BNFGrammarActivity");
+                createMenuTile(R.string.showhelp_command, R.drawable.show_help, "ShowHelpActivity"),
+                createMenuTile(R.string.bnf_command, R.drawable.ic_format_quote_black_24dp, "BNFGrammarActivity")
+        };
 
-        mMainMenuTileAdaptor = new MainMenuTileAdaptor(tileList);
-        mGridView = (GridView) findViewById(R.id.gridView);
-        mGridView.setAdapter(mMainMenuTileAdaptor);
+        final MainMenuTileAdaptor mainMenuTileAdaptor = new MainMenuTileAdaptor(tileList);
+        final GridView gridView = findViewById(R.id.gridView);
+        gridView.setAdapter(mainMenuTileAdaptor);
+
+        showAppVersion();
+    }
+
+    /**
+     * Create a menu tile button.
+     *
+     * @param voiceCommand The voice command for the tile.
+     * @param icon         The icon for the tile.
+     * @param activity     The activity to launch when the tile is selected.
+     * @return The created tile.
+     */
+    private MainMenuTile createMenuTile(int voiceCommand, int icon, String activity) {
+        return new MainMenuTile(this, voiceCommand, icon, activity);
+    }
+
+    /**
+     * Show the current version number.
+     */
+    private void showAppVersion() {
+        final TextView versionTextView = findViewById(R.id.versionTextField);
+
+        try {
+            final PackageInfo packageInfo = getBaseContext().getPackageManager().getPackageInfo(
+                    getBaseContext().getPackageName(), 0);
+            versionTextView.setText("version: " + packageInfo.versionName);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Failed to display version number", e);
+        }
     }
 }
