@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="12dp"
     android:contentDescription="hf_no_number">
 
     <ImageView
@@ -28,25 +29,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/bitmapPhoto"
+        <com.realwear.ux.viewgroup.CommandBar
+            android:id="@+id/photoBar"
+            android:layout_margin="8dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="onLaunchBitmapPhoto"
-            android:text="@string/camera_button_bitmap_photo"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/fileProviderPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@id/bitmapPhoto"
-            android:onClick="onLaunchFileProviderPhoto"
-            android:text="@string/camera_button_file_provider_photo"
-            android:textSize="18sp" />
+            <com.realwear.ux.view.CommandButton
+                android:id="@+id/bitmapPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onLaunchFileProviderPhoto"
+                android:text="@string/camera_button_bitmap_photo" />
+
+            <com.realwear.ux.view.CommandButton
+                android:id="@+id/fileProviderPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onLaunchBitmapPhoto"
+                android:text="@string/camera_button_file_provider_photo" />
+        </com.realwear.ux.viewgroup.CommandBar>
 
     </LinearLayout>
 
@@ -59,25 +61,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/basicVideo"
+        <com.realwear.ux.viewgroup.CommandBar
+            android:id="@+id/videoBar"
+            android:layout_margin="8dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="onLaunchBasicVideo"
-            android:text="@string/camera_button_basic_video"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/fileProviderVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@id/basicVideo"
-            android:onClick="onLaunchFileProviderVideo"
-            android:text="@string/camera_button_file_provider_video"
-            android:textSize="18sp" />
+            <com.realwear.ux.view.CommandButton
+                android:id="@+id/basicVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onLaunchBasicVideo"
+                android:text="@string/camera_button_basic_video" />
+
+            <com.realwear.ux.view.CommandButton
+                android:id="@+id/fileProviderVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onLaunchFileProviderVideo"
+                android:text="@string/camera_button_file_provider_video" />
+        </com.realwear.ux.viewgroup.CommandBar>
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
