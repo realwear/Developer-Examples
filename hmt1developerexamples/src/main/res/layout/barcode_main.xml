@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:contentDescription="hf_no_number">
 
-    <Button
+    <com.realwear.ux.view.CommandButton
+        android:id="@+id/launchBarcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
         android:onClick="onLaunchBarcode"
-        android:text="@string/barcode_button_label"
-        android:textSize="18sp" />
+        android:text="@string/barcode_button_label" />
 
     <TextView
         android:id="@+id/barcode_textview"
