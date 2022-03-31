@@ -6,6 +6,7 @@
  */
 package com.realwear.hmt1developerexamples
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.widget.GridView
@@ -68,15 +69,18 @@ class MainActivity : Activity() {
     /**
      * Show the current version number.
      */
+    @SuppressLint("SetTextI18n")
     private fun showAppVersion() {
-        val versionTextView = findViewById<TextView>(R.id.versionTextField)
-        try {
-            val packageInfo = baseContext.packageManager.getPackageInfo(
+        val versionName = runCatching {
+            baseContext.packageManager.getPackageInfo(
                 baseContext.packageName, 0
-            )
-            versionTextView.text = "version: " + packageInfo.versionName
-        } catch (e: PackageManager.NameNotFoundException) {
-            Log.e(TAG, "Failed to display version number", e)
+            )?.versionName
+        }.onFailure {
+            Log.e(TAG, "Failed to display version number", it)
+        }.getOrNull()
+
+        findViewById<TextView>(R.id.versionTextField)?.let {
+            it.text = "version: $versionName"
         }
     }
 
