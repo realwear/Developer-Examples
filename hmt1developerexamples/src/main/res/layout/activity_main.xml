@@ -16,12 +16,11 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="2dp" />
 
-    <TextView
+    <com.realwear.ux.view.StyledTextView
         android:id="@+id/versionTextField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="version: 1.3.0"
-        android:textSize="18sp" />
+        android:text="version: 1.3.0" />
 
 </RelativeLayout>
