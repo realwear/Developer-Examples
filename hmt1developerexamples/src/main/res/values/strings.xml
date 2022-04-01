@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Developer Test</string>
+    <string name="app_name">Developer Examples</string>
 
     <!-- Main Screen Commands -->
     <string name="action_button_command">Action Button</string>
@@ -9,7 +9,7 @@
     <string name="barcode_command">Barcode Applet</string>
 
     <string name="asr_command">Speech Recognizer</string>
-    <string name="dication_command">Keyboard and Dictation</string>
+    <string name="dictation_command">Keyboard and Dictation</string>
     <string name="tts_command">Text to Speech"</string>
     <string name="mute_command">Microphone Release</string>
     <string name="audio_command">Audio Capture</string>
@@ -38,7 +38,7 @@
 
     <!-- Resources for TTS Activity -->
     <string name="tts_speech">Welcome to the HMT-1 from RealWear. This is the Text to Speech Engine example.</string>
-    <string name="tts_speech_hint">(Dont forget to install the TTS Language Pack APK from the RealWear Cloud)</string>
+    <string name="tts_speech_hint">(Don\'t forget to install the TTS Language Pack APK from the RealWear Cloud)</string>
 
     <!-- Resources for Speech Activity -->
     <string name="speech_label">Speak a quantity from 1 to 3</string>
