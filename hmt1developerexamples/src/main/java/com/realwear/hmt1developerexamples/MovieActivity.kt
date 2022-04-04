@@ -59,11 +59,13 @@ class MovieActivity : Activity() {
             sampleFile!!
         )
 
-        val viewIntent = Intent(Intent.ACTION_VIEW)
-        viewIntent.addCategory(Intent.CATEGORY_DEFAULT)
-        viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        viewIntent.setDataAndType(contentUri, SAMPLE_MIME_TYPE)
-        viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val viewIntent = Intent(Intent.ACTION_VIEW).apply {
+            addCategory(Intent.CATEGORY_DEFAULT)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            setDataAndType(contentUri, SAMPLE_MIME_TYPE)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+
         startActivity(viewIntent)
     }
 
