@@ -7,34 +7,29 @@
  */
 package com.realwear.hmt1developerexamples
 
+import android.annotation.SuppressLint
 import android.widget.LinearLayout
-import com.realwear.hmt1developerexamples.R
-import android.widget.TextView
 import android.content.Intent
 import android.content.ComponentName
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
+import androidx.core.content.res.ResourcesCompat
+import com.realwear.hmt1developerexamples.databinding.CommandSquareBinding
 
 /**
- * Class which represents a clickable time to start an example
- */
-class MainMenuTile
-/**
- * Constructor
+ * Given the [context], MainMenuTile represents a clickable tile constructed with the icon
+ * [commandResID] and title [imageResID].
  *
- * @param context      The context
- * @param commandResID The speech command to activate the tile
- * @param imageResID   The image to display on the tile
- * @param _launchClass  The class to launch when the tile is clicked by the user
- */(
+ * Launches [launchClass] when clicked.
+ */
+@SuppressLint("ViewConstructor")
+class MainMenuTile (
     context: Context,
-    commandResID: Int,
-    imageResID: Int,
-    private val _launchClass: String
+    private val commandResID: Int,
+    private val imageResID: Int,
+    private val launchClass: String
 ) : LinearLayout(context), View.OnClickListener {
-
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.command_square, this, true)
@@ -42,40 +37,32 @@ class MainMenuTile
         setSmallText(commandResID)
         setOnClickListener(this)
     }
+    private val binding: CommandSquareBinding
 
     /**
-     * Set the image displayed on the tile
-     *
-     * @param resID The image to display
+     * Set the image displayed on the tile via [resID]
      */
     private fun setImage(resID: Int) {
-        val iv = findViewById<View>(R.id.imageView) as ImageView
-        val drawable = resources.getDrawable(resID, context.theme)
-        iv.setImageDrawable(drawable)
+        val drawable = ResourcesCompat.getDrawable(resources, resID, context.theme)
+        binding.imageView.setImageDrawable(drawable)
     }
 
     /**
-     * Set the text displayed on the tile
-     *
-     * @param resID The text to display
+     * Set the text displayed on the tile via [resID]
      */
     private fun setSmallText(resID: Int) {
-        val tv = findViewById<View>(R.id.smallTextView) as TextView
-        val text = resources.getString(resID)
-        tv.text = text
+        binding.smallTextView.text = resources.getString(resID)
     }
 
     /**
-     * Called when the tile is clicked
-     *
-     * @param view This tile
+     * Called when the [tile] is clicked
      */
-    override fun onClick(view: View) {
+    override fun onClick(tile: View) {
         val packageName = context.packageName
-        val intent = Intent()
-        intent.component = ComponentName(packageName, "$packageName.$_launchClass")
+        val intent = Intent().apply {
+            component = ComponentName(packageName, "$packageName.$launchClass")
+        }
         context.startActivity(intent)
     }
-
 
 }
