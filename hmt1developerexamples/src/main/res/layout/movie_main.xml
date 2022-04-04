@@ -5,7 +5,7 @@
     android:contentDescription="hf_no_number">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/movieThumbnailView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,9 +14,10 @@
         android:src="@drawable/kickass_thumbnail" />
 
     <Button
+        android:id="@+id/launchMovieButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/movieThumbnailView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
         android:onClick="onLaunchVideo"
