@@ -13,14 +13,14 @@
         android:scaleType="center"
         android:src="@drawable/radio_button_unchecked" />
 
-    <TextView
+    <com.realwear.ux.view.StyledTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/actionButtonImageView"
         android:layout_marginTop="47dp"
-        android:text="@string/action_button_label"
+        style="@style/Subtitle1_TextView"
         android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+        android:text="@string/action_button_label" />
 
 </RelativeLayout>
