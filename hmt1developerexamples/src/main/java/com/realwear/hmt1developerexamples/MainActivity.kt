@@ -11,18 +11,45 @@ import android.app.Activity
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.TextView
-import android.content.pm.PackageManager
 import android.util.Log
 import android.view.View
+import com.realwear.hmt1developerexamples.databinding.ActivityMainBinding
 
 /**
  * Main activity which displays a list of examples to the user.
  */
 class MainActivity : Activity() {
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val tileList = arrayOf<View>(
+        setContentView(binding.root)
+
+        setMainMenuTileAdapter()
+        showAppVersion()
+    }
+
+    /**
+     * Return a new menu tile with an [icon] and [voiceCommand], and which [activity] to launch
+     * when selected.
+     */
+    private fun createMenuTile(voiceCommand: Int, icon: Int, activity: String): MainMenuTile {
+        return MainMenuTile(this, voiceCommand, icon, activity)
+    }
+
+    /**
+     * Setup the main menu GridView's adapter
+     */
+    private fun setMainMenuTileAdapter() {
+        val mainMenuTiles = createMainMenuTiles()
+        binding.gridView.adapter = MainMenuTileAdaptor(mainMenuTiles)
+    }
+
+    /**
+     * Return an array of tile views for the main menu.
+     */
+    private fun createMainMenuTiles(): Array<View> {
+        return arrayOf(
             createMenuTile(
                 R.string.action_button_command,
                 R.drawable.action_button,
@@ -48,26 +75,10 @@ class MainActivity : Activity() {
                 "BNFGrammarActivity"
             )
         )
-        val mainMenuTileAdaptor = MainMenuTileAdaptor(tileList)
-        val gridView = findViewById<GridView>(R.id.gridView)
-        gridView.adapter = mainMenuTileAdaptor
-        showAppVersion()
     }
 
     /**
-     * Create a menu tile button.
-     *
-     * @param voiceCommand The voice command for the tile.
-     * @param icon         The icon for the tile.
-     * @param activity     The activity to launch when the tile is selected.
-     * @return The created tile.
-     */
-    private fun createMenuTile(voiceCommand: Int, icon: Int, activity: String): MainMenuTile {
-        return MainMenuTile(this, voiceCommand, icon, activity)
-    }
-
-    /**
-     * Show the current version number.
+     * Determine and render the current version number on screen.
      */
     @SuppressLint("SetTextI18n")
     private fun showAppVersion() {
@@ -79,9 +90,7 @@ class MainActivity : Activity() {
             Log.e(TAG, "Failed to display version number", it)
         }.getOrNull()
 
-        findViewById<TextView>(R.id.versionTextField)?.let {
-            it.text = "version: $versionName"
-        }
+        binding.versionTextField.text = "version: $versionName"
     }
 
     companion object {
