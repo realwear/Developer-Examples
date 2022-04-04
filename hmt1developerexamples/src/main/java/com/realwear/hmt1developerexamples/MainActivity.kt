@@ -9,8 +9,6 @@ package com.realwear.hmt1developerexamples
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
-import android.widget.GridView
-import android.widget.TextView
 import android.util.Log
 import android.view.View
 import com.realwear.hmt1developerexamples.databinding.ActivityMainBinding
