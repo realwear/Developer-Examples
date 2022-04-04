@@ -9,12 +9,11 @@ package com.realwear.hmt1developerexamples
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.WindowManager
-import com.realwear.hmt1developerexamples.R
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import android.content.Intent
 import android.view.View
+import com.realwear.hmt1developerexamples.databinding.MovieMainBinding
 import java.io.File
 import java.io.IOException
 
@@ -22,51 +21,55 @@ import java.io.IOException
  * Activity that shows how open a video on a HMT-1 device
  */
 class MovieActivity : Activity() {
-    private val sampleFileName = "kick ass.mp4"
-    private val sampleFolderName = "Movies"
-    private val sampleMimeType = "video/mp4"
-    private var mSampleFile: File? = null
+    private val binding: MovieMainBinding by lazy { MovieMainBinding.inflate(layoutInflater) }
+    private var sampleFile: File? = null
 
-    /**
-     * Called when the activity is created
-     *
-     * @param savedInstanceState See Android docs
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-        setContentView(R.layout.movie_main)
+        setContentView(binding.root)
+
         try {
-            mSampleFile = Utils.copyFromAssetsToExternal(this, sampleFileName, sampleFolderName)
+            sampleFile = Utils.copyFromAssetsToExternal(
+                this,
+                SAMPLE_FILE_NAME,
+                SAMPLE_FOLDER_NAME
+            )
         } catch (ex: IOException) {
-            Toast.makeText(this, "Failed to Copy Sample File", Toast.LENGTH_LONG).show()
+            Toast
+                .makeText(this, "Failed to copy sample file", Toast.LENGTH_LONG)
+                .show()
         }
     }
 
     /**
-     * Listener for when a the launch video button is clicked
-     *
-     * @param view The launch launch video button
+     * Listener for when a the launch video button [view] is clicked
      */
+    @Suppress("UNUSED_PARAMETER")
     fun onLaunchVideo(view: View?) {
-        if (mSampleFile == null) {
-            Toast.makeText(applicationContext, "Failed to find sample file", Toast.LENGTH_LONG)
+        if (sampleFile == null) {
+            Toast
+                .makeText(applicationContext, "Failed to find sample file", Toast.LENGTH_LONG)
                 .show()
             return
         }
+
         val contentUri = FileProvider.getUriForFile(
             applicationContext,
             applicationContext.packageName + ".fileprovider",
-            mSampleFile!!
+            sampleFile!!
         )
+
         val viewIntent = Intent(Intent.ACTION_VIEW)
         viewIntent.addCategory(Intent.CATEGORY_DEFAULT)
         viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        viewIntent.setDataAndType(contentUri, sampleMimeType)
+        viewIntent.setDataAndType(contentUri, SAMPLE_MIME_TYPE)
         viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(viewIntent)
+    }
+
+    companion object {
+        private const val SAMPLE_FILE_NAME = "kick_ass.mp4"
+        private const val SAMPLE_FOLDER_NAME = "Movies"
+        private const val SAMPLE_MIME_TYPE = "video/mp4"
     }
 }
