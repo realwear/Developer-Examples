@@ -30,13 +30,6 @@ class MainMenuTile (
     private val imageResID: Int,
     private val launchClass: String
 ) : LinearLayout(context), View.OnClickListener {
-    init {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.command_square, this, true)
-        setImage(imageResID)
-        setSmallText(commandResID)
-        setOnClickListener(this)
-    }
     private val binding: CommandSquareBinding
 
     /**
@@ -65,4 +58,12 @@ class MainMenuTile (
         context.startActivity(intent)
     }
 
+    init {
+        val layoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        binding = CommandSquareBinding.inflate(layoutInflater)
+        setImage(imageResID)
+        setSmallText(commandResID)
+        setOnClickListener(this)
+    }
 }
